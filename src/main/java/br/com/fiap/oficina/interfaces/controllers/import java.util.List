@@ -1,7 +1,0 @@
-@GetMapping
-        public ResponseEntity<List<ClienteResponseDTO>> listarTodos() {
-
-return ResponseEntity.ok(
-clienteService.listarTodos()
-);
-}

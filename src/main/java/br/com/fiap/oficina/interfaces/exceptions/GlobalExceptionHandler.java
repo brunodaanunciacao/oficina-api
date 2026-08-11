@@ -37,6 +37,32 @@ public class GlobalExceptionHandler {
                 ));
     }
 
+    @ExceptionHandler(VeiculoNaoEncontradoException.class)
+    public ResponseEntity<Map<String, Object>> tratarVeiculoNaoEncontrado(
+            VeiculoNaoEncontradoException exception) {
+
+        return ResponseEntity
+                .status(HttpStatus.NOT_FOUND)
+                .body(Map.of(
+                        "status", 404,
+                        "error", "Not Found",
+                        "message", exception.getMessage()
+                ));
+    }
+
+    @ExceptionHandler(VeiculoDuplicadoException.class)
+    public ResponseEntity<Map<String, Object>> tratarVeiculoDuplicado(
+            VeiculoDuplicadoException exception) {
+
+        return ResponseEntity
+                .status(HttpStatus.CONFLICT)
+                .body(Map.of(
+                        "status", 409,
+                        "error", "Conflict",
+                        "message", exception.getMessage()
+                ));
+    }
+
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<Map<String, Object>> tratarValidacao(
             MethodArgumentNotValidException exception) {

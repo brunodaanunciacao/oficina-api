@@ -54,4 +54,23 @@ public class VeiculoController {
                 veiculoService.buscarPorCliente(clienteId)
         );
     }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<VeiculoResponseDTO> atualizar(
+            @PathVariable Long id,
+            @Valid @RequestBody VeiculoRequestDTO request) {
+
+        return ResponseEntity.ok(
+                veiculoService.atualizar(id, request)
+        );
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> excluir(
+            @PathVariable Long id) {
+
+        veiculoService.excluir(id);
+
+        return ResponseEntity.noContent().build();
+    }
 }

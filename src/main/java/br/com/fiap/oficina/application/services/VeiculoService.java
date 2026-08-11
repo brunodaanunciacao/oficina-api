@@ -7,6 +7,8 @@ import br.com.fiap.oficina.infrastructure.repositories.VeiculoRepository;
 import br.com.fiap.oficina.interfaces.dtos.VeiculoRequestDTO;
 import br.com.fiap.oficina.interfaces.dtos.VeiculoResponseDTO;
 import br.com.fiap.oficina.interfaces.exceptions.ClienteNaoEncontradoException;
+import br.com.fiap.oficina.interfaces.exceptions.VeiculoDuplicadoException;
+import br.com.fiap.oficina.interfaces.exceptions.VeiculoNaoEncontradoException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -28,7 +30,7 @@ public class VeiculoService {
     public VeiculoResponseDTO criar(VeiculoRequestDTO request) {
 
         if (veiculoRepository.existsByPlaca(request.placa())) {
-            throw new IllegalArgumentException(
+            throw new VeiculoDuplicadoException(
                     "Veículo já cadastrado com esta placa"
             );
         }
@@ -65,7 +67,7 @@ public class VeiculoService {
 
         Veiculo veiculo = veiculoRepository.findById(id)
                 .orElseThrow(() ->
-                        new IllegalArgumentException(
+                        new VeiculoNaoEncontradoException(
                                 "Veículo não encontrado"
                         )
                 );
@@ -85,6 +87,55 @@ public class VeiculoService {
                 .stream()
                 .map(this::converterParaResponse)
                 .toList();
+    }
+
+    public VeiculoResponseDTO atualizar(
+            Long id,
+            VeiculoRequestDTO request) {
+
+        Veiculo veiculo = veiculoRepository.findById(id)
+                .orElseThrow(() ->
+                        new VeiculoNaoEncontradoException(
+                                "Veículo não encontrado"
+                        )
+                );
+
+        if (!veiculo.getPlaca().equals(request.placa())
+                && veiculoRepository.existsByPlaca(request.placa())) {
+
+            throw new VeiculoDuplicadoException(
+                    "Já existe outro veículo cadastrado com esta placa"
+            );
+        }
+
+        Cliente cliente = clienteRepository.findById(request.clienteId())
+                .orElseThrow(() ->
+                        new ClienteNaoEncontradoException(
+                                "Cliente não encontrado"
+                        )
+                );
+
+        veiculo.setPlaca(request.placa());
+        veiculo.setMarca(request.marca());
+        veiculo.setModelo(request.modelo());
+        veiculo.setAno(request.ano());
+        veiculo.setCliente(cliente);
+
+        Veiculo atualizado = veiculoRepository.save(veiculo);
+
+        return converterParaResponse(atualizado);
+    }
+
+    public void excluir(Long id) {
+
+        Veiculo veiculo = veiculoRepository.findById(id)
+                .orElseThrow(() ->
+                        new VeiculoNaoEncontradoException(
+                                "Veículo não encontrado"
+                        )
+                );
+
+        veiculoRepository.delete(veiculo);
     }
 
     private VeiculoResponseDTO converterParaResponse(Veiculo veiculo) {

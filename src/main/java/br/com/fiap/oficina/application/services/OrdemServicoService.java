@@ -15,6 +15,7 @@ import br.com.fiap.oficina.infrastructure.repositories.ServicoRepository;
 import br.com.fiap.oficina.infrastructure.repositories.VeiculoRepository;
 import br.com.fiap.oficina.interfaces.dtos.AdicionarPecaOSDTO;
 import br.com.fiap.oficina.interfaces.dtos.AdicionarServicoOSDTO;
+import br.com.fiap.oficina.interfaces.dtos.AtualizarStatusOSDTO;
 import br.com.fiap.oficina.interfaces.dtos.OrdemServicoPecaResponseDTO;
 import br.com.fiap.oficina.interfaces.dtos.OrdemServicoRequestDTO;
 import br.com.fiap.oficina.interfaces.dtos.OrdemServicoResponseDTO;
@@ -23,6 +24,7 @@ import br.com.fiap.oficina.interfaces.exceptions.EstoqueInsuficienteException;
 import br.com.fiap.oficina.interfaces.exceptions.OrdemServicoNaoEncontradaException;
 import br.com.fiap.oficina.interfaces.exceptions.PecaNaoEncontradaException;
 import br.com.fiap.oficina.interfaces.exceptions.ServicoNaoEncontradoException;
+import br.com.fiap.oficina.interfaces.exceptions.StatusOrdemServicoInvalidoException;
 import br.com.fiap.oficina.interfaces.exceptions.VeiculoNaoEncontradoException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -71,18 +73,10 @@ public class OrdemServicoService {
         OrdemServico ordemServico = new OrdemServico();
 
         ordemServico.setVeiculo(veiculo);
-        ordemServico.setDescricaoProblema(
-                request.descricaoProblema()
-        );
-        ordemServico.setStatus(
-                StatusOrdemServico.CRIADA
-        );
-        ordemServico.setValorTotal(
-                BigDecimal.ZERO
-        );
-        ordemServico.setDataAbertura(
-                LocalDateTime.now()
-        );
+        ordemServico.setDescricaoProblema(request.descricaoProblema());
+        ordemServico.setStatus(StatusOrdemServico.CRIADA);
+        ordemServico.setValorTotal(BigDecimal.ZERO);
+        ordemServico.setDataAbertura(LocalDateTime.now());
 
         OrdemServico salva =
                 ordemServicoRepository.save(ordemServico);
@@ -175,7 +169,6 @@ public class OrdemServicoService {
                 );
 
         if (peca.getQuantidadeEstoque() < request.quantidade()) {
-
             throw new EstoqueInsuficienteException(
                     "Estoque insuficiente para adicionar a peça à ordem de serviço"
             );
@@ -216,6 +209,70 @@ public class OrdemServicoService {
                 ordemServicoRepository.save(ordemServico);
 
         return converterParaResponse(atualizada);
+    }
+
+    public OrdemServicoResponseDTO atualizarStatus(
+            Long id,
+            AtualizarStatusOSDTO request) {
+
+        OrdemServico ordemServico =
+                buscarEntidadePorId(id);
+
+        StatusOrdemServico atual =
+                ordemServico.getStatus();
+
+        StatusOrdemServico novo =
+                request.status();
+
+        validarTransicao(atual, novo);
+
+        ordemServico.setStatus(novo);
+
+        OrdemServico atualizada =
+                ordemServicoRepository.save(ordemServico);
+
+        return converterParaResponse(atualizada);
+    }
+
+    private void validarTransicao(
+            StatusOrdemServico atual,
+            StatusOrdemServico novo) {
+
+        boolean valida = switch (atual) {
+
+            case CRIADA ->
+                    novo == StatusOrdemServico.DIAGNOSTICO
+                            || novo == StatusOrdemServico.CANCELADA;
+
+            case DIAGNOSTICO ->
+                    novo == StatusOrdemServico.AGUARDANDO_APROVACAO
+                            || novo == StatusOrdemServico.CANCELADA;
+
+            case AGUARDANDO_APROVACAO ->
+                    novo == StatusOrdemServico.APROVADA
+                            || novo == StatusOrdemServico.CANCELADA;
+
+            case APROVADA ->
+                    novo == StatusOrdemServico.EM_EXECUCAO
+                            || novo == StatusOrdemServico.CANCELADA;
+
+            case EM_EXECUCAO ->
+                    novo == StatusOrdemServico.FINALIZADA;
+
+            case FINALIZADA ->
+                    novo == StatusOrdemServico.ENTREGUE;
+
+            case ENTREGUE, CANCELADA -> false;
+        };
+
+        if (!valida) {
+            throw new StatusOrdemServicoInvalidoException(
+                    "Transição de status inválida: "
+                            + atual
+                            + " -> "
+                            + novo
+            );
+        }
     }
 
     public void excluir(Long id) {
@@ -272,12 +329,8 @@ public class OrdemServicoService {
                 ordemServico.getId(),
                 ordemServico.getVeiculo().getId(),
                 ordemServico.getVeiculo().getPlaca(),
-                ordemServico.getVeiculo()
-                        .getCliente()
-                        .getId(),
-                ordemServico.getVeiculo()
-                        .getCliente()
-                        .getNome(),
+                ordemServico.getVeiculo().getCliente().getId(),
+                ordemServico.getVeiculo().getCliente().getNome(),
                 ordemServico.getDescricaoProblema(),
                 ordemServico.getStatus(),
                 servicos,

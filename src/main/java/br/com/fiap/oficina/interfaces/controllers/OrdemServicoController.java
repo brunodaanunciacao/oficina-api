@@ -3,6 +3,7 @@ package br.com.fiap.oficina.interfaces.controllers;
 import br.com.fiap.oficina.application.services.OrdemServicoService;
 import br.com.fiap.oficina.interfaces.dtos.AdicionarPecaOSDTO;
 import br.com.fiap.oficina.interfaces.dtos.AdicionarServicoOSDTO;
+import br.com.fiap.oficina.interfaces.dtos.AtualizarStatusOSDTO;
 import br.com.fiap.oficina.interfaces.dtos.OrdemServicoRequestDTO;
 import br.com.fiap.oficina.interfaces.dtos.OrdemServicoResponseDTO;
 import jakarta.validation.Valid;
@@ -34,8 +35,7 @@ public class OrdemServicoController {
     }
 
     @GetMapping
-    public ResponseEntity<List<OrdemServicoResponseDTO>>
-    listarTodas() {
+    public ResponseEntity<List<OrdemServicoResponseDTO>> listarTodas() {
 
         return ResponseEntity.ok(
                 ordemServicoService.listarTodas()
@@ -43,8 +43,8 @@ public class OrdemServicoController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<OrdemServicoResponseDTO>
-    buscarPorId(@PathVariable Long id) {
+    public ResponseEntity<OrdemServicoResponseDTO> buscarPorId(
+            @PathVariable Long id) {
 
         return ResponseEntity.ok(
                 ordemServicoService.buscarPorId(id)
@@ -52,42 +52,41 @@ public class OrdemServicoController {
     }
 
     @GetMapping("/veiculo/{veiculoId}")
-    public ResponseEntity<List<OrdemServicoResponseDTO>>
-    buscarPorVeiculo(
+    public ResponseEntity<List<OrdemServicoResponseDTO>> buscarPorVeiculo(
             @PathVariable Long veiculoId) {
 
         return ResponseEntity.ok(
-                ordemServicoService.buscarPorVeiculo(
-                        veiculoId
-                )
+                ordemServicoService.buscarPorVeiculo(veiculoId)
         );
     }
 
     @PostMapping("/{id}/servicos")
-    public ResponseEntity<OrdemServicoResponseDTO>
-    adicionarServico(
+    public ResponseEntity<OrdemServicoResponseDTO> adicionarServico(
             @PathVariable Long id,
             @Valid @RequestBody AdicionarServicoOSDTO request) {
 
         return ResponseEntity.ok(
-                ordemServicoService.adicionarServico(
-                        id,
-                        request
-                )
+                ordemServicoService.adicionarServico(id, request)
         );
     }
 
     @PostMapping("/{id}/pecas")
-    public ResponseEntity<OrdemServicoResponseDTO>
-    adicionarPeca(
+    public ResponseEntity<OrdemServicoResponseDTO> adicionarPeca(
             @PathVariable Long id,
             @Valid @RequestBody AdicionarPecaOSDTO request) {
 
         return ResponseEntity.ok(
-                ordemServicoService.adicionarPeca(
-                        id,
-                        request
-                )
+                ordemServicoService.adicionarPeca(id, request)
+        );
+    }
+
+    @PatchMapping("/{id}/status")
+    public ResponseEntity<OrdemServicoResponseDTO> atualizarStatus(
+            @PathVariable Long id,
+            @Valid @RequestBody AtualizarStatusOSDTO request) {
+
+        return ResponseEntity.ok(
+                ordemServicoService.atualizarStatus(id, request)
         );
     }
 

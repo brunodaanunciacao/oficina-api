@@ -77,6 +77,12 @@ public class GlobalExceptionHandler {
         return resposta(HttpStatus.CONFLICT, exception.getMessage());
     }
 
+    @ExceptionHandler(CredenciaisInvalidasException.class)
+    public ResponseEntity<Map<String, Object>> tratarCredenciaisInvalidas(
+            CredenciaisInvalidasException exception) {
+        return resposta(HttpStatus.UNAUTHORIZED, exception.getMessage());
+    }
+
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<Map<String, Object>> tratarValidacao(
             MethodArgumentNotValidException exception) {
@@ -89,7 +95,10 @@ public class GlobalExceptionHandler {
                 .map(erro -> erro.getDefaultMessage())
                 .orElse("Dados inválidos");
 
-        return resposta(HttpStatus.BAD_REQUEST, mensagem);
+        return resposta(
+                HttpStatus.BAD_REQUEST,
+                mensagem
+        );
     }
 
     private ResponseEntity<Map<String, Object>> resposta(

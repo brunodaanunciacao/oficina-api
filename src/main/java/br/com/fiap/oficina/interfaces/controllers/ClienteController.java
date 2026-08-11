@@ -47,4 +47,23 @@ public class ClienteController {
                 clienteService.buscarPorId(id)
         );
     }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<ClienteResponseDTO> atualizar(
+            @PathVariable Long id,
+            @Valid @RequestBody ClienteRequestDTO request) {
+
+        return ResponseEntity.ok(
+                clienteService.atualizar(id, request)
+        );
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> excluir(
+            @PathVariable Long id) {
+
+        clienteService.excluir(id);
+
+        return ResponseEntity.noContent().build();
+    }
 }

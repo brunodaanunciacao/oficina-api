@@ -4,6 +4,7 @@ import br.com.fiap.oficina.domain.ordemservico.StatusOrdemServico;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.List;
 
 public record OrdemServicoResponseDTO(
 
@@ -14,6 +15,11 @@ public record OrdemServicoResponseDTO(
         String clienteNome,
         String descricaoProblema,
         StatusOrdemServico status,
+
+        List<OrdemServicoServicoResponseDTO> servicos,
+
+        List<OrdemServicoPecaResponseDTO> pecas,
+
         BigDecimal valorTotal,
         LocalDateTime dataAbertura
 

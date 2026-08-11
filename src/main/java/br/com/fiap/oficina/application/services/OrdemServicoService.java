@@ -15,8 +15,10 @@ import br.com.fiap.oficina.infrastructure.repositories.ServicoRepository;
 import br.com.fiap.oficina.infrastructure.repositories.VeiculoRepository;
 import br.com.fiap.oficina.interfaces.dtos.AdicionarPecaOSDTO;
 import br.com.fiap.oficina.interfaces.dtos.AdicionarServicoOSDTO;
+import br.com.fiap.oficina.interfaces.dtos.OrdemServicoPecaResponseDTO;
 import br.com.fiap.oficina.interfaces.dtos.OrdemServicoRequestDTO;
 import br.com.fiap.oficina.interfaces.dtos.OrdemServicoResponseDTO;
+import br.com.fiap.oficina.interfaces.dtos.OrdemServicoServicoResponseDTO;
 import br.com.fiap.oficina.interfaces.exceptions.EstoqueInsuficienteException;
 import br.com.fiap.oficina.interfaces.exceptions.OrdemServicoNaoEncontradaException;
 import br.com.fiap.oficina.interfaces.exceptions.PecaNaoEncontradaException;
@@ -238,6 +240,34 @@ public class OrdemServicoService {
     private OrdemServicoResponseDTO converterParaResponse(
             OrdemServico ordemServico) {
 
+        List<OrdemServicoServicoResponseDTO> servicos =
+                ordemServicoServicoRepository
+                        .findByOrdemServicoId(ordemServico.getId())
+                        .stream()
+                        .map(item ->
+                                new OrdemServicoServicoResponseDTO(
+                                        item.getServico().getId(),
+                                        item.getServico().getNome(),
+                                        item.getPreco()
+                                )
+                        )
+                        .toList();
+
+        List<OrdemServicoPecaResponseDTO> pecas =
+                ordemServicoPecaRepository
+                        .findByOrdemServicoId(ordemServico.getId())
+                        .stream()
+                        .map(item ->
+                                new OrdemServicoPecaResponseDTO(
+                                        item.getPeca().getId(),
+                                        item.getPeca().getNome(),
+                                        item.getQuantidade(),
+                                        item.getPrecoUnitario(),
+                                        item.getSubtotal()
+                                )
+                        )
+                        .toList();
+
         return new OrdemServicoResponseDTO(
                 ordemServico.getId(),
                 ordemServico.getVeiculo().getId(),
@@ -250,6 +280,8 @@ public class OrdemServicoService {
                         .getNome(),
                 ordemServico.getDescricaoProblema(),
                 ordemServico.getStatus(),
+                servicos,
+                pecas,
                 ordemServico.getValorTotal(),
                 ordemServico.getDataAbertura()
         );

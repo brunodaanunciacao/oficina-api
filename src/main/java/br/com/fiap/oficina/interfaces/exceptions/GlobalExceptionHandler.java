@@ -12,124 +12,118 @@ import java.util.Map;
 public class GlobalExceptionHandler {
 
     @ExceptionHandler(ClienteNaoEncontradoException.class)
-    public ResponseEntity<Map<String, Object>> tratarClienteNaoEncontrado(
+    public ResponseEntity<Map<String, Object>>
+    tratarClienteNaoEncontrado(
             ClienteNaoEncontradoException exception) {
 
-        return ResponseEntity
-                .status(HttpStatus.NOT_FOUND)
-                .body(Map.of(
-                        "status", 404,
-                        "error", "Not Found",
-                        "message", exception.getMessage()
-                ));
+        return resposta(
+                HttpStatus.NOT_FOUND,
+                exception.getMessage()
+        );
     }
 
     @ExceptionHandler(ClienteDuplicadoException.class)
-    public ResponseEntity<Map<String, Object>> tratarClienteDuplicado(
+    public ResponseEntity<Map<String, Object>>
+    tratarClienteDuplicado(
             ClienteDuplicadoException exception) {
 
-        return ResponseEntity
-                .status(HttpStatus.CONFLICT)
-                .body(Map.of(
-                        "status", 409,
-                        "error", "Conflict",
-                        "message", exception.getMessage()
-                ));
+        return resposta(
+                HttpStatus.CONFLICT,
+                exception.getMessage()
+        );
     }
 
     @ExceptionHandler(VeiculoNaoEncontradoException.class)
-    public ResponseEntity<Map<String, Object>> tratarVeiculoNaoEncontrado(
+    public ResponseEntity<Map<String, Object>>
+    tratarVeiculoNaoEncontrado(
             VeiculoNaoEncontradoException exception) {
 
-        return ResponseEntity
-                .status(HttpStatus.NOT_FOUND)
-                .body(Map.of(
-                        "status", 404,
-                        "error", "Not Found",
-                        "message", exception.getMessage()
-                ));
+        return resposta(
+                HttpStatus.NOT_FOUND,
+                exception.getMessage()
+        );
     }
 
     @ExceptionHandler(VeiculoDuplicadoException.class)
-    public ResponseEntity<Map<String, Object>> tratarVeiculoDuplicado(
+    public ResponseEntity<Map<String, Object>>
+    tratarVeiculoDuplicado(
             VeiculoDuplicadoException exception) {
 
-        return ResponseEntity
-                .status(HttpStatus.CONFLICT)
-                .body(Map.of(
-                        "status", 409,
-                        "error", "Conflict",
-                        "message", exception.getMessage()
-                ));
+        return resposta(
+                HttpStatus.CONFLICT,
+                exception.getMessage()
+        );
     }
 
     @ExceptionHandler(ServicoNaoEncontradoException.class)
-    public ResponseEntity<Map<String, Object>> tratarServicoNaoEncontrado(
+    public ResponseEntity<Map<String, Object>>
+    tratarServicoNaoEncontrado(
             ServicoNaoEncontradoException exception) {
 
-        return ResponseEntity
-                .status(HttpStatus.NOT_FOUND)
-                .body(Map.of(
-                        "status", 404,
-                        "error", "Not Found",
-                        "message", exception.getMessage()
-                ));
+        return resposta(
+                HttpStatus.NOT_FOUND,
+                exception.getMessage()
+        );
     }
 
     @ExceptionHandler(ServicoDuplicadoException.class)
-    public ResponseEntity<Map<String, Object>> tratarServicoDuplicado(
+    public ResponseEntity<Map<String, Object>>
+    tratarServicoDuplicado(
             ServicoDuplicadoException exception) {
 
-        return ResponseEntity
-                .status(HttpStatus.CONFLICT)
-                .body(Map.of(
-                        "status", 409,
-                        "error", "Conflict",
-                        "message", exception.getMessage()
-                ));
+        return resposta(
+                HttpStatus.CONFLICT,
+                exception.getMessage()
+        );
     }
 
     @ExceptionHandler(PecaNaoEncontradaException.class)
-    public ResponseEntity<Map<String, Object>> tratarPecaNaoEncontrada(
+    public ResponseEntity<Map<String, Object>>
+    tratarPecaNaoEncontrada(
             PecaNaoEncontradaException exception) {
 
-        return ResponseEntity
-                .status(HttpStatus.NOT_FOUND)
-                .body(Map.of(
-                        "status", 404,
-                        "error", "Not Found",
-                        "message", exception.getMessage()
-                ));
+        return resposta(
+                HttpStatus.NOT_FOUND,
+                exception.getMessage()
+        );
     }
 
     @ExceptionHandler(PecaDuplicadaException.class)
-    public ResponseEntity<Map<String, Object>> tratarPecaDuplicada(
+    public ResponseEntity<Map<String, Object>>
+    tratarPecaDuplicada(
             PecaDuplicadaException exception) {
 
-        return ResponseEntity
-                .status(HttpStatus.CONFLICT)
-                .body(Map.of(
-                        "status", 409,
-                        "error", "Conflict",
-                        "message", exception.getMessage()
-                ));
+        return resposta(
+                HttpStatus.CONFLICT,
+                exception.getMessage()
+        );
     }
 
     @ExceptionHandler(EstoqueInsuficienteException.class)
-    public ResponseEntity<Map<String, Object>> tratarEstoqueInsuficiente(
+    public ResponseEntity<Map<String, Object>>
+    tratarEstoqueInsuficiente(
             EstoqueInsuficienteException exception) {
 
-        return ResponseEntity
-                .status(HttpStatus.CONFLICT)
-                .body(Map.of(
-                        "status", 409,
-                        "error", "Conflict",
-                        "message", exception.getMessage()
-                ));
+        return resposta(
+                HttpStatus.CONFLICT,
+                exception.getMessage()
+        );
+    }
+
+    @ExceptionHandler(OrdemServicoNaoEncontradaException.class)
+    public ResponseEntity<Map<String, Object>>
+    tratarOrdemServicoNaoEncontrada(
+            OrdemServicoNaoEncontradaException exception) {
+
+        return resposta(
+                HttpStatus.NOT_FOUND,
+                exception.getMessage()
+        );
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
-    public ResponseEntity<Map<String, Object>> tratarValidacao(
+    public ResponseEntity<Map<String, Object>>
+    tratarValidacao(
             MethodArgumentNotValidException exception) {
 
         String mensagem = exception
@@ -140,11 +134,21 @@ public class GlobalExceptionHandler {
                 .map(erro -> erro.getDefaultMessage())
                 .orElse("Dados inválidos");
 
+        return resposta(
+                HttpStatus.BAD_REQUEST,
+                mensagem
+        );
+    }
+
+    private ResponseEntity<Map<String, Object>> resposta(
+            HttpStatus status,
+            String mensagem) {
+
         return ResponseEntity
-                .status(HttpStatus.BAD_REQUEST)
+                .status(status)
                 .body(Map.of(
-                        "status", 400,
-                        "error", "Bad Request",
+                        "status", status.value(),
+                        "error", status.getReasonPhrase(),
                         "message", mensagem
                 ));
     }

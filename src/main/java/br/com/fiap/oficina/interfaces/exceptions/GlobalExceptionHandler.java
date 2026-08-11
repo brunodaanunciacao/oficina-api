@@ -89,6 +89,45 @@ public class GlobalExceptionHandler {
                 ));
     }
 
+    @ExceptionHandler(PecaNaoEncontradaException.class)
+    public ResponseEntity<Map<String, Object>> tratarPecaNaoEncontrada(
+            PecaNaoEncontradaException exception) {
+
+        return ResponseEntity
+                .status(HttpStatus.NOT_FOUND)
+                .body(Map.of(
+                        "status", 404,
+                        "error", "Not Found",
+                        "message", exception.getMessage()
+                ));
+    }
+
+    @ExceptionHandler(PecaDuplicadaException.class)
+    public ResponseEntity<Map<String, Object>> tratarPecaDuplicada(
+            PecaDuplicadaException exception) {
+
+        return ResponseEntity
+                .status(HttpStatus.CONFLICT)
+                .body(Map.of(
+                        "status", 409,
+                        "error", "Conflict",
+                        "message", exception.getMessage()
+                ));
+    }
+
+    @ExceptionHandler(EstoqueInsuficienteException.class)
+    public ResponseEntity<Map<String, Object>> tratarEstoqueInsuficiente(
+            EstoqueInsuficienteException exception) {
+
+        return ResponseEntity
+                .status(HttpStatus.CONFLICT)
+                .body(Map.of(
+                        "status", 409,
+                        "error", "Conflict",
+                        "message", exception.getMessage()
+                ));
+    }
+
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<Map<String, Object>> tratarValidacao(
             MethodArgumentNotValidException exception) {

@@ -6,6 +6,7 @@ import br.com.fiap.oficina.interfaces.dtos.AdicionarServicoOSDTO;
 import br.com.fiap.oficina.interfaces.dtos.AtualizarStatusOSDTO;
 import br.com.fiap.oficina.interfaces.dtos.OrdemServicoRequestDTO;
 import br.com.fiap.oficina.interfaces.dtos.OrdemServicoResponseDTO;
+import br.com.fiap.oficina.interfaces.dtos.TempoMedioExecucaoDTO;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,6 +24,14 @@ public class OrdemServicoController {
             OrdemServicoService ordemServicoService) {
 
         this.ordemServicoService = ordemServicoService;
+    }
+
+    @GetMapping("/relatorios/tempo-medio-execucao")
+    public ResponseEntity<TempoMedioExecucaoDTO> obterTempoMedioExecucao() {
+
+        return ResponseEntity.ok(
+                ordemServicoService.obterTempoMedioExecucao()
+        );
     }
 
     @PostMapping

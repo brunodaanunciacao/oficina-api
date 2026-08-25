@@ -1,5 +1,6 @@
 package br.com.fiap.oficina.interfaces.dtos;
 
+import br.com.fiap.oficina.interfaces.validation.CpfCnpj;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 
@@ -9,6 +10,7 @@ public record ClienteRequestDTO(
         String nome,
 
         @NotBlank(message = "CPF/CNPJ é obrigatório")
+        @CpfCnpj(message = "CPF ou CNPJ inválido")
         String cpfCnpj,
 
         @NotBlank(message = "E-mail é obrigatório")

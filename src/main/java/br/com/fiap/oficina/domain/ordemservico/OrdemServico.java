@@ -38,4 +38,10 @@ public class OrdemServico {
 
     @Column(name = "data_abertura", nullable = false)
     private LocalDateTime dataAbertura;
+
+    @Column(name = "data_inicio_execucao")
+    private LocalDateTime dataInicioExecucao;
+
+    @Column(name = "data_finalizacao")
+    private LocalDateTime dataFinalizacao;
 }

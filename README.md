@@ -1,45 +1,62 @@
-# Oficina API
+# Oficina API — System Integrated for Automotive Repair Shop
 
-API REST desenvolvida como MVP para gerenciamento de uma oficina mecânica.
+API REST desenvolvida como MVP para o gerenciamento integrado de oficinas mecânicas (**Tech Challenge - Fase 1**), aplicando os princípios do **Domain-Driven Design (DDD)**, boas práticas de Qualidade de Software e Segurança.
 
-O sistema permite controlar clientes, veículos, serviços, peças, estoque e ordens de serviço, incluindo cálculo automático de orçamento, controle de estoque, fluxo de status da ordem de serviço, autenticação JWT e documentação Swagger/OpenAPI.
-
----
-
-## Tecnologias
-
-- Java 21
-- Spring Boot 4.0.7
-- Spring Web MVC
-- Spring Data JPA
-- Spring Security
-- JWT
-- Bean Validation
-- PostgreSQL
-- Docker
-- Docker Compose
-- Maven
-- Lombok
-- Swagger / OpenAPI
-- JUnit 5
-- Mockito
-- MockMvc
+O sistema controla o ciclo de vida completo de ordens de serviço (OS), cadastro de clientes e veículos, catálogo de serviços, gestão e reserva de peças no estoque, autenticação segura via JWT e relatórios de monitoramento de desempenho.
 
 ---
 
-## Arquitetura
+## 🚀 Tecnologias Utilizadas
 
-O projeto utiliza uma arquitetura monolítica organizada em camadas.
+- **Linguagem & Framework:** Java 21 | Spring Boot 4
+- **Persistência:** Spring Data JPA | Hibernate
+- **Banco de Dados:** PostgreSQL 16
+- **Segurança:** Spring Security | JWT (JSON Web Token)
+- **Validação:** Bean Validation | Validadores Customizados (CPF/CNPJ e Placa)
+- **Containerização:** Docker | Docker Compose
+- **Documentação:** Swagger UI / OpenAPI 3
+- **Testes:** JUnit 5 | Mockito
+
+---
+
+## 🗄️ Justificativa da Escolha do Banco de Dados
+
+A escolha do **PostgreSQL** como SGBD relacional justifica-se pelos seguintes fatores principais:
+1. **Garantias ACID:** Ordens de serviço, itens de peças e estoque exigem estrita consistência transacional para evitar *race conditions* em reservas de estoque e divergências financeiras no valor final do orçamento.
+2. **Integridade Referencial Forte:** Suporte a chaves estrangeiras com regras em cascata (`ON DELETE CASCADE`) entre Clientes, Veículos e Ordens de Serviço, assegurando a rastreabilidade do histórico.
+3. **Escalabilidade e Confiabilidade:** SGBD open-source maduro, amplamente adotado em ambiente produtivo e com ecossistema robusto para containers Docker.
+
+---
+
+## 📌 Funcionalidades Principais & Linguagem Ubíqua
+
+- **Criação e Fluxo da Ordem de Serviço (OS):**
+  - Status gerenciados segundo o Event Storming: `RECEBIDA` ➔ `EM_DIAGNOSTICO` ➔ `AGUARDANDO_APROVACAO` ➔ `APROVADA` ➔ `EM_EXECUCAO` ➔ `FINALIZADA` ➔ `ENTREGUE` (ou `CANCELADA`).
+  - Restrição de adição de peças e serviços exclusivamente durante a fase de `EM_DIAGNOSTICO`.
+  - Estorno e devolução automática de peças reservadas ao estoque caso a OS seja cancelada.
+- **Monitoramento do Tempo Médio de Execução:**
+  - Endpoint dedicado `GET /ordens-servico/relatorios/tempo-medio-execucao` para acompanhar a duração média (em minutos e horas) dos serviços prestados entre o início da execução e a finalização.
+- **Validação Robusta de Dados Sensíveis:**
+  - Verificação de CPF (11 dígitos) e CNPJ (14 dígitos) com algoritmos de dígitos verificadores.
+  - Validação de placas de veículos nos formatos tradicional (`ABC1234`) e Mercosul (`ABC1D23`).
+- **Autenticação & Controle de Acesso:**
+  - Autenticação JWT para APIs administrativas (`POST /auth/login`).
+
+---
+
+## 🏛️ Arquitetura do Projeto
+
+O projeto utiliza uma estrutura monolítica em camadas baseada no DDD:
 
 ```text
 src/main/java/br/com/fiap/oficina
 │
 ├── application
-│   └── services
+│   └── services             # Regras de aplicação e casos de uso
 │
-├── config
+├── config                   # Configurações de segurança (JWT), CORS e OpenAPI
 │
-├── domain
+├── domain                   # Entidades ricas de domínio e regras de negócio
 │   ├── cliente
 │   ├── veiculo
 │   ├── servico
@@ -48,9 +65,56 @@ src/main/java/br/com/fiap/oficina
 │   └── usuario
 │
 ├── infrastructure
-│   └── repositories
+│   └── repositories         # Repositórios JPA de acesso aos dados
 │
-└── interfaces
-    ├── controllers
-    ├── dtos
-    └── exceptions
+└── interfaces               # Camada de entrada/saída (HTTP REST)
+    ├── controllers          # Endpoints RESTful
+    ├── dtos                 # Objetos de transferência de dados (Records)
+    ├── validation           # Validadores customizados (@CpfCnpj, @PlacaVeiculo)
+    └── exceptions           # Tratamento global de exceções (GlobalExceptionHandler)
+```
+
+---
+
+## 🛠️ Como Executar Localmente
+
+### Pré-requisitos
+- Docker & Docker Compose
+- Java 21 + Maven 3.9+ (caso vá rodar localmente sem Docker)
+
+### Execução via Docker Compose (Recomendado)
+
+1. Suba o ambiente (PostgreSQL + Aplicação) com os scripts de inicialização (`init-scripts/`):
+   ```bash
+   docker-compose up -d --build
+   ```
+2. A aplicação estará acessível em: `http://localhost:8080`
+3. Documentação Swagger UI: `http://localhost:8080/swagger-ui.html`
+
+### Execução Local (Desenvolvimento)
+
+> 💡 **Nota sobre a versão do Java:** O projeto utiliza **Java 21**. Para compilar diretamente no terminal via `.\mvnw.cmd`, certifique-se de que o JDK 21 esteja configurado no seu `JAVA_HOME`. Caso seu ambiente local possua um Java inferior (ex: Java 11/17), utilize a **Execução via Docker Compose**, que compila o projeto dentro de um container isolado com JDK 21.
+
+1. Suba apenas o banco de dados PostgreSQL:
+   ```bash
+   docker-compose up -d postgres
+   ```
+2. Execute a aplicação via Maven Wrapper (com JDK 21 configurado):
+   ```bash
+   ./mvnw spring-boot:run
+   ```
+
+---
+
+## 🧪 Execução dos Testes & Roteiro de Validação
+
+- **Testes Automatizados:** Para executar a suíte de testes unitários e de integração:
+  ```bash
+  ./mvnw clean test
+  ```
+
+- **Roteiro de Validação Funcional:** Consulte o arquivo **[ROTEIRO_DE_TESTES.md](ROTEIRO_DE_TESTES.md)** para obter o guia detalhado contendo credenciais de teste pré-cadastradas (`admin@oficina.com`, `atendente@oficina.com`, `mecanico@oficina.com`) e o passo a passo completo das requisições para validação do sistema via Swagger UI ou Postman.
+
+- **Relatório de Segurança & Vulnerabilidades (OWASP ZAP):** Consulte o arquivo **[RELATORIO_SEGURANCA_OWASP_ZAP.md](RELATORIO_SEGURANCA_OWASP_ZAP.md)** contendo a análise detalhada de varredura DAST contra as regras do OWASP Top 10 API Security Risks.
+
+- **Manual de Testes de Segurança:** Consulte o arquivo **[MANUAL_TESTES_SEGURANCA.md](MANUAL_TESTES_SEGURANCA.md)** para o guia passo a passo de como executar análises estáticas (SAST - Dependency Check) e dinâmicas (DAST - OWASP ZAP) na aplicação.

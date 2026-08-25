@@ -2,6 +2,7 @@ package br.com.fiap.oficina.application.services;
 
 import br.com.fiap.oficina.domain.cliente.Cliente;
 import br.com.fiap.oficina.domain.ordemservico.OrdemServico;
+import br.com.fiap.oficina.domain.ordemservico.OrdemServicoPeca;
 import br.com.fiap.oficina.domain.ordemservico.StatusOrdemServico;
 import br.com.fiap.oficina.domain.peca.Peca;
 import br.com.fiap.oficina.domain.veiculo.Veiculo;
@@ -10,6 +11,7 @@ import br.com.fiap.oficina.interfaces.dtos.AdicionarPecaOSDTO;
 import br.com.fiap.oficina.interfaces.dtos.AtualizarStatusOSDTO;
 import br.com.fiap.oficina.interfaces.dtos.OrdemServicoRequestDTO;
 import br.com.fiap.oficina.interfaces.dtos.OrdemServicoResponseDTO;
+import br.com.fiap.oficina.interfaces.dtos.TempoMedioExecucaoDTO;
 import br.com.fiap.oficina.interfaces.exceptions.EstoqueInsuficienteException;
 import br.com.fiap.oficina.interfaces.exceptions.StatusOrdemServicoInvalidoException;
 import org.junit.jupiter.api.BeforeEach;
@@ -81,7 +83,7 @@ class OrdemServicoServiceTest {
                 "Ruído ao frear"
         );
         ordemServico.setStatus(
-                StatusOrdemServico.CRIADA
+                StatusOrdemServico.RECEBIDA
         );
         ordemServico.setValorTotal(
                 BigDecimal.ZERO
@@ -128,7 +130,7 @@ class OrdemServicoServiceTest {
         assertNotNull(response);
         assertEquals(1L, response.id());
         assertEquals(
-                StatusOrdemServico.CRIADA,
+                StatusOrdemServico.RECEBIDA,
                 response.status()
         );
         assertEquals(
@@ -139,6 +141,8 @@ class OrdemServicoServiceTest {
 
     @Test
     void deveImpedirPecaQuandoEstoqueInsuficiente() {
+
+        ordemServico.setStatus(StatusOrdemServico.EM_DIAGNOSTICO);
 
         Peca peca = new Peca();
 
@@ -183,7 +187,7 @@ class OrdemServicoServiceTest {
     void deveImpedirTransicaoInvalidaDeStatus() {
 
         ordemServico.setStatus(
-                StatusOrdemServico.CRIADA
+                StatusOrdemServico.RECEBIDA
         );
 
         when(ordemServicoRepository.findById(1L))
@@ -205,11 +209,36 @@ class OrdemServicoServiceTest {
                 );
 
         assertEquals(
-                "Transição de status inválida: CRIADA -> FINALIZADA",
+                "Transição de status inválida: RECEBIDA -> FINALIZADA",
                 exception.getMessage()
         );
 
         verify(ordemServicoRepository, never())
                 .save(any());
+    }
+
+    @Test
+    void deveObterTempoMedioExecucao() {
+        LocalDateTime inicio = LocalDateTime.now().minusHours(2);
+        LocalDateTime fim = LocalDateTime.now();
+
+        OrdemServico osFinalizada = new OrdemServico();
+        osFinalizada.setId(2L);
+        osFinalizada.setVeiculo(veiculo);
+        osFinalizada.setStatus(StatusOrdemServico.FINALIZADA);
+        osFinalizada.setDataAbertura(inicio.minusHours(1));
+        osFinalizada.setDataInicioExecucao(inicio);
+        osFinalizada.setDataFinalizacao(fim);
+        osFinalizada.setValorTotal(BigDecimal.TEN);
+
+        when(ordemServicoRepository.findAll()).thenReturn(List.of(osFinalizada));
+        when(ordemServicoServicoRepository.findByOrdemServicoId(any())).thenReturn(List.of());
+        when(ordemServicoPecaRepository.findByOrdemServicoId(any())).thenReturn(List.of());
+
+        TempoMedioExecucaoDTO dto = ordemServicoService.obterTempoMedioExecucao();
+
+        assertNotNull(dto);
+        assertEquals(1, dto.totalOrdensFinalizadas());
+        assertTrue(dto.tempoMedioEmMinutos() >= 119.0);
     }
 }

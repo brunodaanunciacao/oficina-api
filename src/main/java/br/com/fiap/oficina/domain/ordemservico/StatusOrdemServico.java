@@ -2,8 +2,8 @@ package br.com.fiap.oficina.domain.ordemservico;
 
 public enum StatusOrdemServico {
 
-    CRIADA,
-    DIAGNOSTICO,
+    RECEBIDA,
+    EM_DIAGNOSTICO,
     AGUARDANDO_APROVACAO,
     APROVADA,
     EM_EXECUCAO,

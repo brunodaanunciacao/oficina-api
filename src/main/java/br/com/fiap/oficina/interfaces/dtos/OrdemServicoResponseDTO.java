@@ -21,7 +21,8 @@ public record OrdemServicoResponseDTO(
         List<OrdemServicoPecaResponseDTO> pecas,
 
         BigDecimal valorTotal,
-        LocalDateTime dataAbertura
-
+        LocalDateTime dataAbertura,
+        LocalDateTime dataInicioExecucao,
+        LocalDateTime dataFinalizacao
 ) {
 }

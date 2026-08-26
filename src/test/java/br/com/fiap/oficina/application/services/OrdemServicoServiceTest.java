@@ -2,7 +2,6 @@ package br.com.fiap.oficina.application.services;
 
 import br.com.fiap.oficina.domain.cliente.Cliente;
 import br.com.fiap.oficina.domain.ordemservico.OrdemServico;
-import br.com.fiap.oficina.domain.ordemservico.OrdemServicoPeca;
 import br.com.fiap.oficina.domain.ordemservico.StatusOrdemServico;
 import br.com.fiap.oficina.domain.peca.Peca;
 import br.com.fiap.oficina.domain.veiculo.Veiculo;

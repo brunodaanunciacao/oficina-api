@@ -231,8 +231,6 @@ class OrdemServicoServiceTest {
         osFinalizada.setValorTotal(BigDecimal.TEN);
 
         when(ordemServicoRepository.findAll()).thenReturn(List.of(osFinalizada));
-        when(ordemServicoServicoRepository.findByOrdemServicoId(any())).thenReturn(List.of());
-        when(ordemServicoPecaRepository.findByOrdemServicoId(any())).thenReturn(List.of());
 
         TempoMedioExecucaoDTO dto = ordemServicoService.obterTempoMedioExecucao();
 

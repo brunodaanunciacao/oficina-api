@@ -1,0 +1,1351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ZAP by Checkmarx Scanning Report</title>
+<link
+	href="2026-08-30-ZAP-Report-localhost_v2/normalize/normalize.css" rel="stylesheet">
+<link
+	href="2026-08-30-ZAP-Report-localhost_v2/themes/original/main.css" rel="stylesheet">
+<link
+	href="2026-08-30-ZAP-Report-localhost_v2/themes/original/colors.css" rel="stylesheet">
+</head>
+<body>
+	<header>
+		<h1>ZAP by Checkmarx Scanning Report</h1>
+		<p>
+			<span>Generated with</span> <a href="https://zaproxy.org"><img
+				src="2026-08-30-ZAP-Report-localhost_v2/zap32x32.png" alt="The ZAP logo" class="zap-logo">ZAP</a>
+			<span>on Sun 30 Aug 2026, at 15:39:27</span>
+		</p>
+		<p>ZAP Version: 2.17.0</p>
+		<p>
+			ZAP by <a href="https://checkmarx.com/">Checkmarx</a>
+		</p>
+	</header>
+
+	<main>
+
+		<section id="contents" class="contents">
+			<h2>Contents</h2>
+			<nav>
+				<ol>
+					<li><a
+						href="#about-this-report">About This Report</a>
+						<ol>
+							
+							<li><a
+								href="#report-parameters">Report Parameters</a></li>
+						</ol></li>
+					<data-th-block>
+					<li><a
+						href="#summaries">Summaries</a>
+						<ol>
+							<li><a
+								href="#risk-confidence-counts">Alert Counts by Risk and Confidence</a></li>
+							<li><a
+								href="#site-risk-counts">Alert Counts by Site and Risk</a></li>
+							<li><a
+								href="#alert-type-counts">Alert Counts by Alert Type</a></li>
+							<li><a
+								href="#insights">Insights</a></li>
+						</ol></li>
+					<li><a
+						href="#alerts">Alerts</a>
+						<ol>
+							
+							
+							
+							
+							
+							
+							
+							<li><a
+								href="#alerts--risk-3-confidence-2"><span>Risk</span>=<span
+									class="risk-level">High</span>, <span>Confidence</span>=<span
+									class="confidence-level">Medium</span> <span>(2)</span></a></li>
+							
+							<li><a
+								href="#alerts--risk-3-confidence-1"><span>Risk</span>=<span
+									class="risk-level">High</span>, <span>Confidence</span>=<span
+									class="confidence-level">Low</span> <span>(1)</span></a></li>
+							  
+							 
+							 
+							 
+						</ol></li>
+					<li><a
+						href="#appendix">Appendix</a>
+						<ol>
+							<li><a
+								href="#alert-types">Alert Types</a></li>
+						</ol></li>
+					</data-th-block>
+				</ol>
+			</nav>
+		</section>
+
+		<section
+			id="about-this-report" class="about-this-report">
+			<h2>About This Report</h2>
+
+			
+
+			<section
+				id="report-parameters">
+				<h3>Report Parameters</h3>
+				<div class="report-parameters--container">
+					<h4>Contexts</h4>
+					
+					
+					<p>No contexts were selected, so all contexts were included by default.</p>
+					  
+
+					<h4>Sites</h4>
+					
+					<p>The following sites were included:</p>
+					<ul class="sites-list">
+						<li><span class="site">http://localhost:8080</span></li>
+					</ul>
+					
+					<p>(If no sites were selected, all sites were included by default.)</p>
+					<p>An included site must also be within one of the included contexts for its data to be included in the report.</p>
+
+					<h4>Risk levels</h4>
+					<p>
+						<span>Included</span>:
+						 
+						<span class="included-risk-codes"><span class="risk-level">High</span>, <span class="risk-level">Medium</span>, <span class="risk-level">Low</span>, <span class="risk-level">Informational</span></span>
+					</p>
+					<p>
+						<span>Excluded</span>:
+						 <span>None</span>
+						
+					</p>
+
+					<h4>Confidence levels</h4>
+					<p>
+						<span>Included</span>:
+						
+						
+						<span class="included-confidence-codes"><span class="confidence-level">User Confirmed</span>, <span class="confidence-level">High</span>, <span class="confidence-level">Medium</span>, <span class="confidence-level">Low</span></span>
+					</p>
+					<p>
+						<span>Excluded</span>:
+						
+						
+						<span class="included-confidence-codes"> <span class="confidence-level">User Confirmed</span>, <span class="confidence-level">High</span>, <span class="confidence-level">Medium</span>, <span class="confidence-level">Low</span>, <span class="confidence-level">False Positive</span></span>
+					</p>
+				</div>
+			</section>
+		</section>
+
+		
+		<section>
+			
+		</section>
+		
+		<section id="summaries" class="summaries">
+			<h2>Summaries</h2>
+
+			<section
+				id="risk-confidence-counts">
+				<h3>Alert Counts by Risk and Confidence</h3>
+				<table class="risk-confidence-counts-table">
+					<caption>
+						<p>This table shows the number of alerts for each level of risk and confidence included in the report.</p>
+						<p>(The percentages in brackets represent the count as a percentage of the total number of alerts included in the report, rounded to one decimal place.)</p>
+					</caption>
+					<colgroup>
+						<col>
+						<col>
+					</colgroup>
+					<colgroup>
+						<col
+							style="width: 14.0%"><col
+							style="width: 14.0%"><col
+							style="width: 14.0%"><col
+							style="width: 14.0%">
+						<col style="width: 14.0%">
+					</colgroup>
+					<thead>
+						<tr>
+							<td colspan="2" rowspan="2"></td>
+							<th scope="colgroup"
+								colspan="5">Confidence</th>
+						</tr>
+						<tr>
+							<th scope="col">User Confirmed</th>
+							<th scope="col">High</th>
+							<th scope="col">Medium</th>
+							<th scope="col">Low</th>
+							<th scope="col">Total</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<th scope="rowgroup"
+								rowspan="5">Risk</th>
+							<th scope="row">High</th>
+							<td><span>0</span><br> <span
+								class="additional-info-percentages">(0.0%)</span></td>
+							<td><span>0</span><br> <span
+								class="additional-info-percentages">(0.0%)</span></td>
+							<td><span>2</span><br> <span
+								class="additional-info-percentages">(66.7%)</span></td>
+							<td><span>1</span><br> <span
+								class="additional-info-percentages">(33.3%)</span></td>
+							<td><span>3</span><br> <span class="additional-info-percentages">(100.0%)</span></td>
+						</tr>
+						<tr>
+							
+							<th scope="row">Medium</th>
+							<td><span>0</span><br> <span
+								class="additional-info-percentages">(0.0%)</span></td>
+							<td><span>0</span><br> <span
+								class="additional-info-percentages">(0.0%)</span></td>
+							<td><span>0</span><br> <span
+								class="additional-info-percentages">(0.0%)</span></td>
+							<td><span>0</span><br> <span
+								class="additional-info-percentages">(0.0%)</span></td>
+							<td><span>0</span><br> <span class="additional-info-percentages">(0.0%)</span></td>
+						</tr>
+						<tr>
+							
+							<th scope="row">Low</th>
+							<td><span>0</span><br> <span
+								class="additional-info-percentages">(0.0%)</span></td>
+							<td><span>0</span><br> <span
+								class="additional-info-percentages">(0.0%)</span></td>
+							<td><span>0</span><br> <span
+								class="additional-info-percentages">(0.0%)</span></td>
+							<td><span>0</span><br> <span
+								class="additional-info-percentages">(0.0%)</span></td>
+							<td><span>0</span><br> <span class="additional-info-percentages">(0.0%)</span></td>
+						</tr>
+						<tr>
+							
+							<th scope="row">Informational</th>
+							<td><span>0</span><br> <span
+								class="additional-info-percentages">(0.0%)</span></td>
+							<td><span>0</span><br> <span
+								class="additional-info-percentages">(0.0%)</span></td>
+							<td><span>0</span><br> <span
+								class="additional-info-percentages">(0.0%)</span></td>
+							<td><span>0</span><br> <span
+								class="additional-info-percentages">(0.0%)</span></td>
+							<td><span>0</span><br> <span class="additional-info-percentages">(0.0%)</span></td>
+						</tr>
+						<tr>
+							<th scope="row">Total</th>
+							<td><span>0</span><br> <span
+								class="additional-info-percentages">(0.0%)</span></td>
+							<td><span>0</span><br> <span
+								class="additional-info-percentages">(0.0%)</span></td>
+							<td><span>2</span><br> <span
+								class="additional-info-percentages">(66.7%)</span></td>
+							<td><span>1</span><br> <span
+								class="additional-info-percentages">(33.3%)</span></td>
+							<td><span>3</span><br> <span
+								class="additional-info-percentages">(100%)</span></td>
+						</tr>
+					</tbody>
+				</table>
+			</section>
+
+			<section
+				id="site-risk-counts">
+				<h3>Alert Counts by Site and Risk</h3>
+				<table class="site-risk-counts-table">
+					<caption>
+						<p>This table shows, for each site for which one or more alerts were raised, the number of alerts raised at each risk level.</p>
+						<p>Alerts with a confidence level of &quot;False Positive&quot; have been excluded from these counts.</p>
+						<p>(The numbers in brackets are the number of alerts raised for the site at or above that risk level.)</p>
+					</caption>
+					<colgroup>
+						<col>
+						<col>
+					</colgroup>
+					<colgroup>
+						<col
+							style="width: 16.25%"><col
+							style="width: 16.25%"><col
+							style="width: 16.25%"><col
+							style="width: 16.25%">
+					</colgroup>
+					<thead>
+						<tr>
+							<td colspan="2" rowspan="2"></td>
+							<th scope="colgroup" colspan="4">Risk</th>
+						</tr>
+						<tr>
+							<th scope="col">
+								<span>High</span><br>  <span
+									class="additional-info-percentages">(= High)</span>  
+							</th>
+							<th scope="col">
+								<span>Medium</span><br>   <span
+									class="additional-info-percentages">(&gt;= Medium)</span> 
+							</th>
+							<th scope="col">
+								<span>Low</span><br>   <span
+									class="additional-info-percentages">(&gt;= Low)</span> 
+							</th>
+							<th scope="col">
+								<span>Informational</span><br>   <span
+									class="additional-info-percentages">(&gt;= Informational)</span> 
+							</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<th scope="rowgroup"
+								rowspan="1">Site</th>
+							<th scope="row">http://localhost:8080</th>
+							
+							<td><span>3</span><br> <span
+								class="additional-info-percentages">(3)</span></td>
+							<td><span>0</span><br> <span
+								class="additional-info-percentages">(3)</span></td>
+							<td><span>0</span><br> <span
+								class="additional-info-percentages">(3)</span></td>
+							<td><span>0</span><br> <span
+								class="additional-info-percentages">(3)</span></td>
+							
+						</tr>
+					</tbody>
+				</table>
+			</section>
+
+			<section
+				id="alert-type-counts">
+				<h3>Alert Counts by Alert Type</h3>
+				<table class="alert-type-counts-table">
+					<caption>
+						<p>This table shows the number of alerts of each alert type, together with the alert type&#39;s risk level.</p>
+						<p>(The percentages in brackets represent each count as a percentage, rounded to one decimal place, of the total number of alerts included in this report.)</p>
+					</caption>
+					<thead>
+						<tr>
+							<th scope="col">Alert type</th>
+							<th scope="col">Risk</th>
+							<th scope="col">Count</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<th scope="row"><a
+								href="#alert-type-0">Cross Site Scripting (Persistent)</a></th>
+							<td class="risk-level">High</td>
+							<td><span>1</span><br> <span
+								class="additional-info-percentages">(33.3%)</span></td>
+						</tr>
+						<tr>
+							<th scope="row"><a
+								href="#alert-type-1">Path Traversal</a></th>
+							<td class="risk-level">High</td>
+							<td><span>2</span><br> <span
+								class="additional-info-percentages">(66.7%)</span></td>
+						</tr>
+						<tr>
+							<th scope="row"><a
+								href="#alert-type-2">SQL Injection</a></th>
+							<td class="risk-level">High</td>
+							<td><span>7</span><br> <span
+								class="additional-info-percentages">(233.3%)</span></td>
+						</tr>
+					</tbody>
+					<tfoot>
+						<tr>
+							<th scope="row">Total</th>
+							<td></td>
+							<td>3</td>
+						</tr>
+					</tfoot>
+				</table>
+			</section>
+			
+			<section
+				id="insights">
+				<h3 class="left-header">Insights</h3>
+				
+				<table class="insights-table">
+						<caption>
+						<p>This table shows information that is likely to be very relevant to you, but which is not related to vulnerabilities, or potentially even related to the application in question.</p>
+					</caption>
+					<thead>
+					<tr>
+						<th scope="col">Level</th>
+						<th scope="col">Reason</th>
+						<th scope="col">Site</th>
+						<th scope="col">Description</th>
+						<th scope="col">Statistic</th>
+					</tr>
+					</thead>
+					<tbody>
+					
+						<tr>
+						<td class="risk-1">
+							<div>Low</div>
+						</td>
+						<td>
+							<div>Warning</div>
+						</td>
+						<td>
+							<div></div>
+						</td>
+						<td>
+							<div>ZAP errors logged - see the zap.log file for details</div>
+						</td>
+						<td align="center">
+							<div>1   </div>
+						</td>
+						</tr>
+					
+						<tr>
+						<td class="risk-1">
+							<div>Low</div>
+						</td>
+						<td>
+							<div>Warning</div>
+						</td>
+						<td>
+							<div></div>
+						</td>
+						<td>
+							<div>ZAP warnings logged - see the zap.log file for details</div>
+						</td>
+						<td align="center">
+							<div>16   </div>
+						</td>
+						</tr>
+					
+						<tr>
+						<td class="risk-1">
+							<div>Low</div>
+						</td>
+						<td>
+							<div>Exceeded High</div>
+						</td>
+						<td>
+							<div>http://localhost:8080</div>
+						</td>
+						<td>
+							<div>Percentage of responses with status code 4xx</div>
+						</td>
+						<td align="center">
+							<div>96 %</div>
+						</td>
+						</tr>
+					
+						<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informational</div>
+						</td>
+						<td>
+							<div></div>
+						</td>
+						<td>
+							<div>Percentage of network failures</div>
+						</td>
+						<td align="center">
+							<div>1 %</div>
+						</td>
+						</tr>
+					
+						<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informational</div>
+						</td>
+						<td>
+							<div>http://localhost:8080</div>
+						</td>
+						<td>
+							<div>Percentage of responses with status code 2xx</div>
+						</td>
+						<td align="center">
+							<div>2 %</div>
+						</td>
+						</tr>
+					
+						<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informational</div>
+						</td>
+						<td>
+							<div>http://localhost:8080</div>
+						</td>
+						<td>
+							<div>Percentage of responses with status code 5xx</div>
+						</td>
+						<td align="center">
+							<div>1 %</div>
+						</td>
+						</tr>
+					
+						<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informational</div>
+						</td>
+						<td>
+							<div>http://localhost:8080</div>
+						</td>
+						<td>
+							<div>Percentage of endpoints with content type application/json</div>
+						</td>
+						<td align="center">
+							<div>100 %</div>
+						</td>
+						</tr>
+					
+						<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informational</div>
+						</td>
+						<td>
+							<div>http://localhost:8080</div>
+						</td>
+						<td>
+							<div>Percentage of endpoints with method DELETE</div>
+						</td>
+						<td align="center">
+							<div>15 %</div>
+						</td>
+						</tr>
+					
+						<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informational</div>
+						</td>
+						<td>
+							<div>http://localhost:8080</div>
+						</td>
+						<td>
+							<div>Percentage of endpoints with method GET</div>
+						</td>
+						<td align="center">
+							<div>39 %</div>
+						</td>
+						</tr>
+					
+						<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informational</div>
+						</td>
+						<td>
+							<div>http://localhost:8080</div>
+						</td>
+						<td>
+							<div>Percentage of endpoints with method PATCH</div>
+						</td>
+						<td align="center">
+							<div>9 %</div>
+						</td>
+						</tr>
+					
+						<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informational</div>
+						</td>
+						<td>
+							<div>http://localhost:8080</div>
+						</td>
+						<td>
+							<div>Percentage of endpoints with method POST</div>
+						</td>
+						<td align="center">
+							<div>24 %</div>
+						</td>
+						</tr>
+					
+						<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informational</div>
+						</td>
+						<td>
+							<div>http://localhost:8080</div>
+						</td>
+						<td>
+							<div>Percentage of endpoints with method PUT</div>
+						</td>
+						<td align="center">
+							<div>12 %</div>
+						</td>
+						</tr>
+					
+						<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informational</div>
+						</td>
+						<td>
+							<div>http://localhost:8080</div>
+						</td>
+						<td>
+							<div>Count of total endpoints</div>
+						</td>
+						<td align="center">
+							<div>99   </div>
+						</td>
+						</tr>
+					
+						<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informational</div>
+						</td>
+						<td>
+							<div>http://localhost:8080</div>
+						</td>
+						<td>
+							<div>Percentage of slow responses</div>
+						</td>
+						<td align="center">
+							<div>1 %</div>
+						</td>
+						</tr>
+					
+					</tbody>
+				</table>
+			</section>
+		</section>
+
+		<section id="alerts" class="alerts">
+			<h2>Alerts</h2>
+			<ol>
+				
+				 
+				
+				
+				
+				
+				<li id="alerts--risk-3-confidence-2">
+					<h3>
+						<span>Risk</span>=<span
+							class="risk-level">High</span>, <span>Confidence</span>=<span
+							class="confidence-level">Medium</span> <span>(2)</span>
+					</h3>
+					<ol>
+						
+						<li class="alerts--site-li">
+							<h4>
+								<span class="site">http://localhost:8080</span> <span>(2)</span>
+							</h4>
+							<ol>
+								
+								<li>
+									<h5>
+										<a
+											href="#alert-type-0">Cross Site Scripting (Persistent)</a> <span>(1)</span>
+									</h5>
+									<ol>
+										<li><details>
+												<summary>
+													<span class="request-method-n-url">GET http://localhost:8080/servicos</span>
+												</summary>
+												
+<table class="alerts-table">
+	<tr>
+		<th scope="row">Alert tags</th>
+		<td>
+			<ul class="alert-tags-list">
+				<li>
+					<span><a href="https://owasp.org/Top10/2025/A05_2025-Injection/">OWASP_2025_A05</a></span> 
+				</li>
+				<li>
+					<span><a href="https://cwe.mitre.org/data/definitions/79.html">CWE-79</a></span> 
+				</li>
+				<li>
+					<span><a href="https://owasp.org/Top10/2021/A03_2021-Injection/">OWASP_2021_A03</a></span> 
+				</li>
+				<li>
+					<span><a href="https://www.zaproxy.org/docs/desktop/addons/common-library/alerttags/#compliance">PCI_DSS</a></span> 
+				</li>
+				<li>
+					 <span>POLICY_DEV_FULL = </span>
+				</li>
+				<li>
+					 <span>POLICY_QA_STD = </span>
+				</li>
+				<li>
+					 <span>POLICY_QA_FULL = </span>
+				</li>
+				<li>
+					 <span>POLICY_PENTEST = </span>
+				</li>
+				<li>
+					<span><a href="https://www.zaproxy.org/docs/desktop/addons/common-library/alerttags/#compliance">HIPAA</a></span> 
+				</li>
+				<li>
+					<span><a href="https://owasp.org/www-project-web-security-testing-guide/v42/4-Web_Application_Security_Testing/07-Input_Validation_Testing/02-Testing_for_Stored_Cross_Site_Scripting">WSTG-v42-INPV-02</a></span> 
+				</li>
+				<li>
+					<span><a href="https://owasp.org/www-project-top-ten/2017/A7_2017-Cross-Site_Scripting_(XSS).html">OWASP_2017_A07</a></span> 
+				</li>
+			</ul>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">Alert description</th>
+		<td> 
+<p>Cross-site Scripting (XSS) is an attack technique that involves echoing attacker-supplied code into a user&#39;s browser instance. A browser instance can be a standard web browser client, or a browser object embedded in a software product such as the browser within WinAmp, an RSS reader, or an email client. The code itself is usually written in HTML/JavaScript, but may also extend to VBScript, ActiveX, Java, Flash, or any other browser-supported technology.</p>
+
+<p>When an attacker gets a user&#39;s browser to execute his/her code, the code will run within the security context (or zone) of the hosting web site. With this level of privilege, the code has the ability to read, modify and transmit any sensitive data accessible by the browser. A Cross-site Scripted user could have his/her account hijacked (cookie theft), their browser redirected to another location, or possibly shown fraudulent content delivered by the web site they are visiting. Cross-site Scripting attacks essentially compromise the trust relationship between a user and the web site. Applications utilizing browser object instances which load content from the file system may execute code under the local machine zone allowing for system compromise.</p>
+
+<p>There are three types of Cross-site Scripting attacks: non-persistent, persistent and DOM-based.</p>
+
+<p>Non-persistent attacks and DOM-based attacks require a user to either visit a specially crafted link laced with malicious code, or visit a malicious web page containing a web form, which when posted to the vulnerable site, will mount the attack. Using a malicious form will oftentimes take place when the vulnerable resource only accepts HTTP POST requests. In such a case, the form can be submitted automatically, without the victim&#39;s knowledge (e.g. by using JavaScript). Upon clicking on the malicious link or submitting the malicious form, the XSS payload will get echoed back and will get interpreted by the user&#39;s browser and execute. Another technique to send almost arbitrary requests (GET and POST) is by using an embedded client, such as Adobe Flash.</p>
+
+<p>Persistent attacks occur when the malicious code is submitted to a web site where it&#39;s stored for a period of time. Examples of an attacker&#39;s favorite targets often include message board posts, web mail messages, and web chat software. The unsuspecting user is not required to interact with any additional site/link (e.g. an attacker site or a malicious link sent via email), just simply view the web page containing the code.</p>
+ </td>
+	</tr>
+	<tr>
+		<th scope="row">Other info</th>
+		<td> 
+<p>Source URL: http://localhost:8080/servicos</p>
+ </td>
+	</tr>
+	<tr>
+		<th scope="row">Request</th>
+		<td><details open="open">
+				<summary>Request line and header section (443 bytes)</summary>
+				
+				<pre><code>GET http://localhost:8080/servicos HTTP/1.1
+host: localhost:8080
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36
+pragma: no-cache
+cache-control: no-cache
+accept: */*
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkBvZmljaW5hLmNvbSIsInBlcmZpbCI6IkFETUlOIiwiaWF0IjoxNzg4MTE0NjgxLCJleHAiOjE3ODgxMTgyODF9.4IdmHVr06gZG8tVGBg8riocu4fhwg1-kDJ8Moh1WsiQ
+
+</code></pre>
+				
+				
+			</details> <details class="request-body" open="open">
+				<summary>Request body (0 bytes)</summary>
+				
+				<pre><code></code></pre>
+				
+				
+			</details></td>
+	</tr>
+	<tr>
+		<th scope="row">Response</th>
+		<td><details open="open">
+				<summary>Status line and header section (411 bytes)</summary>
+				
+				<pre><code>HTTP/1.1 200
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 0
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+X-Frame-Options: DENY
+Content-Security-Policy: default-src &#39;self&#39;; frame-ancestors &#39;none&#39;; form-action &#39;self&#39;;
+Cross-Origin-Resource-Policy: same-origin
+Content-Type: application/json
+Date: Sun, 30 Aug 2026 18:32:28 GMT
+content-length: 19818
+
+</code></pre>
+				
+				
+			</details> <details class="response-body">
+				<summary>Response body (19818 bytes)</summary>
+				
+				<pre><code>[{&quot;id&quot;:1,&quot;nome&quot;:&quot;Troca de Óleo e Filtro&quot;,&quot;descricao&quot;:&quot;Substituição do óleo do motor e elemento filtrante&quot;,&quot;preco&quot;:150.00},{&quot;id&quot;:2,&quot;nome&quot;:&quot;Alinhamento e Balanceamento&quot;,&quot;descricao&quot;:&quot;Alinhamento de direção 3D e balanceamento das 4 rodas&quot;,&quot;preco&quot;:120.00},{&quot;id&quot;:3,&quot;nome&quot;:&quot;Substituição de Pastilhas de Freio&quot;,&quot;descricao&quot;:&quot;Troca das pastilhas de freio dianteiras&quot;,&quot;preco&quot;:200.00},{&quot;id&quot;:4,&quot;nome&quot;:&quot;c:/Windows/system.ini&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:5,&quot;nome&quot;:&quot;../../../../../../../../../../../../../../../../Windows/system.ini&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:6,&quot;nome&quot;:&quot;c:\\Windows\\system.ini&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:7,&quot;nome&quot;:&quot;..\\..\\..\\..\\..\\..\\..\\..\\..\\..\\..\\..\\..\\..\\..\\..\\Windows\\system.ini&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:8,&quot;nome&quot;:&quot;/etc/passwd&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:9,&quot;nome&quot;:&quot;../../../../../../../../../../../../../../../../etc/passwd&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:11,&quot;nome&quot;:&quot;../../../../../../../../../../../../../../../../&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:13,&quot;nome&quot;:&quot;c:\\&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:17,&quot;nome&quot;:&quot;thishouldnotexistandhopefullyitwillnot&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:18,&quot;nome&quot;:&quot;John Doe&quot;,&quot;descricao&quot;:&quot;c:/Windows/system.ini&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:19,&quot;nome&quot;:&quot;http://www.google.com/&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:20,&quot;nome&quot;:&quot;http://www.google.com:80/&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:21,&quot;nome&quot;:&quot;http://www.google.com&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:22,&quot;nome&quot;:&quot;http://www.google.com/search?q=ZAP&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:23,&quot;nome&quot;:&quot;http://www.google.com:80/search?q=ZAP&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:24,&quot;nome&quot;:&quot;www.google.com/&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:25,&quot;nome&quot;:&quot;www.google.com:80/&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:26,&quot;nome&quot;:&quot;www.google.com&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:27,&quot;nome&quot;:&quot;www.google.com/search?q=ZAP&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:28,&quot;nome&quot;:&quot;www.google.com:80/search?q=ZAP&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:29,&quot;nome&quot;:&quot;() { :;}; echo &#39;x-powered-by: ShellShock-Vulnerable&#39;&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:30,&quot;nome&quot;:&quot;() { :;}; /bin/sleep 15&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:32,&quot;nome&quot;:&quot;https://1214570711799938430.owasp.org&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:33,&quot;nome&quot;:&quot;https://1214570711799938430%2eowasp%2eorg&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:34,&quot;nome&quot;:&quot;5;URL=&#39;https://1214570711799938430.owasp.org&#39;&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:35,&quot;nome&quot;:&quot;URL=&#39;http://1214570711799938430.owasp.org&#39;&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:36,&quot;nome&quot;:&quot;https://1214570711799938430.owasp.org/?John Doe&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:37,&quot;nome&quot;:&quot;5;URL=&#39;https://1214570711799938430.owasp.org/?John Doe&#39;&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:38,&quot;nome&quot;:&quot;https://\\1214570711799938430.owasp.org&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:40,&quot;nome&quot;:&quot;&lt;!--#EXEC cmd=\&quot;ls /\&quot;--&gt;&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:41,&quot;nome&quot;:&quot;\&quot;&gt;&lt;!--#EXEC cmd=\&quot;ls /\&quot;--&gt;&lt;&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:42,&quot;nome&quot;:&quot;&lt;!--#EXEC cmd=\&quot;dir \\\&quot;--&gt;&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:43,&quot;nome&quot;:&quot;\&quot;&gt;&lt;!--#EXEC cmd=\&quot;dir \\\&quot;--&gt;&lt;&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:44,&quot;nome&quot;:&quot;0W45pz4p&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:45,&quot;nome&quot;:&quot;&lt;scrIpt&gt;alert(1);&lt;/scRipt&gt;&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:46,&quot;nome&quot;:&quot;zApPX44sS&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:47,&quot;nome&quot;:&quot;&#39;&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:48,&quot;nome&quot;:&quot;John Doe&#39;&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:49,&quot;nome&quot;:&quot;\&quot;&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:50,&quot;nome&quot;:&quot;John Doe\&quot;&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:51,&quot;nome&quot;:&quot;;&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:52,&quot;nome&quot;:&quot;John Doe;&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:53,&quot;nome&quot;:&quot;&#39;(&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:54,&quot;nome&quot;:&quot;John Doe&#39;(&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:55,&quot;nome&quot;:&quot;John Doe AND 1=1 -- &quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:56,&quot;nome&quot;:&quot;John Doe&#39; AND &#39;1&#39;=&#39;1&#39; -- &quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:57,&quot;nome&quot;:&quot;John Doe\&quot; AND \&quot;1\&quot;=\&quot;1\&quot; -- &quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:58,&quot;nome&quot;:&quot;John Doe AND 1=1&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:59,&quot;nome&quot;:&quot;John Doe&#39; AND &#39;1&#39;=&#39;1&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:60,&quot;nome&quot;:&quot;John Doe\&quot; AND \&quot;1\&quot;=\&quot;1&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:61,&quot;nome&quot;:&quot;John Doe UNION ALL select NULL -- &quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:62,&quot;nome&quot;:&quot;John Doe&#39; UNION ALL select NULL -- &quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:63,&quot;nome&quot;:&quot;John Doe\&quot; UNION ALL select NULL -- &quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:64,&quot;nome&quot;:&quot;John Doe) UNION ALL select NULL -- &quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:65,&quot;nome&quot;:&quot;John Doe&#39;) UNION ALL select NULL -- &quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:66,&quot;nome&quot;:&quot;John Doe / sleep(15) &quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:67,&quot;nome&quot;:&quot;John Doe&#39; / sleep(15) / &#39;&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:68,&quot;nome&quot;:&quot;John Doe\&quot; / sleep(15) / \&quot;&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:69,&quot;nome&quot;:&quot;John Doe and 0 in (select sleep(15) ) -- &quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:70,&quot;nome&quot;:&quot;John Doe&#39; and 0 in (select sleep(15) ) -- &quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:71,&quot;nome&quot;:&quot;John Doe\&quot; and 0 in (select sleep(15) ) -- &quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:72,&quot;nome&quot;:&quot;John Doe where 0 in (select sleep(15) ) -- &quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:73,&quot;nome&quot;:&quot;John Doe&#39; where 0 in (select sleep(15) ) -- &quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:74,&quot;nome&quot;:&quot;John Doe\&quot; where 0 in (select sleep(15) ) -- &quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:75,&quot;nome&quot;:&quot;John Doe or 0 in (select sleep(15) ) -- &quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:76,&quot;nome&quot;:&quot;; select \&quot;java.lang.Thread.sleep\&quot;(15000) from INFORMATION_SCHEMA.SYSTEM_COLUMNS where TABLE_NAME = &#39;SYSTEM_COLUMNS&#39; and COLUMN_NAME = &#39;TABLE_NAME&#39; -- &quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:77,&quot;nome&quot;:&quot;&#39;; select \&quot;java.lang.Thread.sleep\&quot;(15000) from INFORMATION_SCHEMA.SYSTEM_COLUMNS where TABLE_NAME = &#39;SYSTEM_COLUMNS&#39; and COLUMN_NAME = &#39;TABLE_NAME&#39; -- &quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:78,&quot;nome&quot;:&quot;\&quot;; select \&quot;java.lang.Thread.sleep\&quot;(15000) from INFORMATION_SCHEMA.SYSTEM_COLUMNS where TABLE_NAME = &#39;SYSTEM_COLUMNS&#39; and COLUMN_NAME = &#39;TABLE_NAME&#39; -- &quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:79,&quot;nome&quot;:&quot;); select \&quot;java.lang.Thread.sleep\&quot;(15000) from INFORMATION_SCHEMA.SYSTEM_COLUMNS where TABLE_NAME = &#39;SYSTEM_COLUMNS&#39; and COLUMN_NAME = &#39;TABLE_NAME&#39; -- &quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:80,&quot;nome&quot;:&quot;\&quot;java.lang.Thread.sleep\&quot;(15000)&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:81,&quot;nome&quot;:&quot;John Doe / \&quot;java.lang.Thread.sleep\&quot;(15000) &quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:82,&quot;nome&quot;:&quot;John Doe&#39; / \&quot;java.lang.Thread.sleep\&quot;(15000) / &#39;&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:83,&quot;nome&quot;:&quot;John Doe\&quot; / \&quot;java.lang.Thread.sleep\&quot;(15000) / \&quot;&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:84,&quot;nome&quot;:&quot;John Doe and exists ( select \&quot;java.lang.Thread.sleep\&quot;(15000) from INFORMATION_SCHEMA.SYSTEM_COLUMNS where TABLE_NAME = &#39;SYSTEM_COLUMNS&#39; and COLUMN_NAME = &#39;TABLE_NAME&#39;) -- &quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:85,&quot;nome&quot;:&quot;John Doe&#39; and exists ( select \&quot;java.lang.Thread.sleep\&quot;(15000) from INFORMATION_SCHEMA.SYSTEM_COLUMNS where TABLE_NAME = &#39;SYSTEM_COLUMNS&#39; and COLUMN_NAME = &#39;TABLE_NAME&#39;) -- &quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:86,&quot;nome&quot;:&quot;(DBMS_SESSION.SLEEP(15))&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:87,&quot;nome&quot;:&quot;John Doe / (DBMS_SESSION.SLEEP(15)) &quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:88,&quot;nome&quot;:&quot;John Doe&#39; / (DBMS_SESSION.SLEEP(15)) / &#39;&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:89,&quot;nome&quot;:&quot;John Doe\&quot; / (DBMS_SESSION.SLEEP(15)) / \&quot;&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:90,&quot;nome&quot;:&quot;John Doe and exists (DBMS_SESSION.SLEEP(15)) -- &quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:91,&quot;nome&quot;:&quot;case when cast(pg_sleep(15.0) as varchar) &gt; &#39;&#39; then 0 else 1 end&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:92,&quot;nome&quot;:&quot;case when cast(pg_sleep(15.0) as varchar) &gt; &#39;&#39; then 0 else 1 end -- &quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:93,&quot;nome&quot;:&quot;&#39;case when cast(pg_sleep(15.0) as varchar) &gt; &#39;&#39; then 0 else 1 end -- &quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:94,&quot;nome&quot;:&quot;\&quot;case when cast(pg_sleep(15.0) as varchar) &gt; &#39;&#39; then 0 else 1 end -- &quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:95,&quot;nome&quot;:&quot;John Doe / case when cast(pg_sleep(15.0) as varchar) &gt; &#39;&#39; then 0 else 1 end &quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:96,&quot;nome&quot;:&quot;John Doe WAITFOR DELAY &#39;0:0:15&#39; -- &quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:97,&quot;nome&quot;:&quot;John Doe&#39; WAITFOR DELAY &#39;0:0:15&#39; -- &quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:98,&quot;nome&quot;:&quot;John Doe\&quot; WAITFOR DELAY &#39;0:0:15&#39; -- &quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:99,&quot;nome&quot;:&quot;John Doe) WAITFOR DELAY &#39;0:0:15&#39; -- &quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:100,&quot;nome&quot;:&quot;John Doe) &#39; WAITFOR DELAY &#39;0:0:15&#39; -- &quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:101,&quot;nome&quot;:&quot;John Doe) \&quot; WAITFOR DELAY &#39;0:0:15&#39; -- &quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:102,&quot;nome&quot;:&quot;John Doe)) WAITFOR DELAY &#39;0:0:15&#39; -- &quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:103,&quot;nome&quot;:&quot;John Doe)) &#39; WAITFOR DELAY &#39;0:0:15&#39; -- &quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:104,&quot;nome&quot;:&quot;John Doe)) \&quot; WAITFOR DELAY &#39;0:0:15&#39; -- &quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:105,&quot;nome&quot;:&quot;John Doe) WAITFOR DELAY &#39;0:0:15&#39; (&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:106,&quot;nome&quot;:&quot;\&quot;;print(chr(122).chr(97).chr(112).chr(95).chr(116).chr(111).chr(107).chr(101).chr(110));$var=\&quot;&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:107,&quot;nome&quot;:&quot;&#39;;print(chr(122).chr(97).chr(112).chr(95).chr(116).chr(111).chr(107).chr(101).chr(110));$var=&#39;&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:108,&quot;nome&quot;:&quot;${@print(chr(122).chr(97).chr(112).chr(95).chr(116).chr(111).chr(107).chr(101).chr(110))}&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:109,&quot;nome&quot;:&quot;${@print(chr(122).chr(97).chr(112).chr(95).chr(116).chr(111).chr(107).chr(101).chr(110))}\\&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:110,&quot;nome&quot;:&quot;;print(chr(122).chr(97).chr(112).chr(95).chr(116).chr(111).chr(107).chr(101).chr(110));&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:111,&quot;nome&quot;:&quot;\&quot;+response.write(40,380*822,171)+\&quot;&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:112,&quot;nome&quot;:&quot;+response.write({0}*{1})+&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:113,&quot;nome&quot;:&quot;response.write(40,380*822,171)&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:114,&quot;nome&quot;:&quot;cat /etc/passwd&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:115,&quot;nome&quot;:&quot;John Doe&amp;cat /etc/passwd&amp;&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:116,&quot;nome&quot;:&quot;John Doe;cat /etc/passwd;&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:117,&quot;nome&quot;:&quot;John Doe\&quot;&amp;cat /etc/passwd&amp;\&quot;&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:118,&quot;nome&quot;:&quot;John Doe\&quot;;cat /etc/passwd;\&quot;&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:119,&quot;nome&quot;:&quot;John Doe&#39;&amp;cat /etc/passwd&amp;&#39;&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:120,&quot;nome&quot;:&quot;John Doe&#39;;cat /etc/passwd;&#39;&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:121,&quot;nome&quot;:&quot;type %SYSTEMROOT%\\win.ini&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:122,&quot;nome&quot;:&quot;John Doe&amp;type %SYSTEMROOT%\\win.ini&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:123,&quot;nome&quot;:&quot;John Doe|type %SYSTEMROOT%\\win.ini&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:124,&quot;nome&quot;:&quot;John Doe\&quot;&amp;type %SYSTEMROOT%\\win.ini&amp;\&quot;&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:125,&quot;nome&quot;:&quot;John Doe\&quot;|type %SYSTEMROOT%\\win.ini&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:126,&quot;nome&quot;:&quot;John Doe&#39;&amp;type %SYSTEMROOT%\\win.ini&amp;&#39;&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:127,&quot;nome&quot;:&quot;John Doe&#39;|type %SYSTEMROOT%\\win.ini&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:128,&quot;nome&quot;:&quot;get-help&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:129,&quot;nome&quot;:&quot;John Doe;get-help&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:130,&quot;nome&quot;:&quot;John Doe\&quot;;get-help&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:131,&quot;nome&quot;:&quot;John Doe&#39;;get-help&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:132,&quot;nome&quot;:&quot;John Doe;get-help #&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:133,&quot;nome&quot;:&quot;\&quot;&#39;&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:134,&quot;nome&quot;:&quot;&lt;!--&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:135,&quot;nome&quot;:&quot;]]&gt;&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:136,&quot;nome&quot;:&quot;zj 7442*8415 zj&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:137,&quot;nome&quot;:&quot;zj{3043*1423}zj&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:138,&quot;nome&quot;:&quot;zj${7816*4088}zj&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:139,&quot;nome&quot;:&quot;zj#{5853*8267}zj&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:140,&quot;nome&quot;:&quot;zj{#5377*6121}zj&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:141,&quot;nome&quot;:&quot;zj{@7975*1957}zj&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:142,&quot;nome&quot;:&quot;zj{{3798*9546}}zj&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:143,&quot;nome&quot;:&quot;zj{{=3716*8085}}zj&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:144,&quot;nome&quot;:&quot;zj&lt;%=8378*8035%&gt;zj&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:145,&quot;nome&quot;:&quot;zj#set($x=6121*7251)${x}zj&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:146,&quot;nome&quot;:&quot;zj&lt;p th:text=\&quot;${7063*2439}\&quot;&gt;&lt;/p&gt;zj&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:147,&quot;nome&quot;:&quot;zj{@math key=\&quot;9703\&quot; method=\&quot;multiply\&quot; operand=\&quot;6434\&quot;/}zj&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:148,&quot;nome&quot;:&quot;zj{{89010|add:43600}}zj&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:149,&quot;nome&quot;:&quot;zj{{print \&quot;4735\&quot; \&quot;8768\&quot;}}zj&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:150,&quot;nome&quot;:&quot;&lt;#assign ex=\&quot;freemarker.template.utility.Execute\&quot;?new()&gt; ${ ex(\&quot;sleep 15\&quot;) }&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:151,&quot;nome&quot;:&quot;#set($engine=\&quot;\&quot;)\n#set($proc=$engine.getClass().forName(\&quot;java.lang.Runtime\&quot;).getRuntime().exec(\&quot;sleep 15\&quot;))\n#set($null=$proc.waitFor())\n${null}&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:152,&quot;nome&quot;:&quot;{{= global.process.mainModule.require(&#39;child_process&#39;).execSync(&#39;sleep 15&#39;).toString() }}&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:153,&quot;nome&quot;:&quot;&lt;%= global.process.mainModule.require(&#39;child_process&#39;).execSync(&#39;sleep 15&#39;).toString()%&gt;&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:154,&quot;nome&quot;:&quot;#{global.process.mainModule.require(&#39;child_process&#39;).execSync(&#39;sleep 15&#39;).toString()}&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:155,&quot;nome&quot;:&quot;{{range.constructor(\&quot;return eval(\\\&quot;global.process.mainModule.require(&#39;child_process&#39;).execSync(&#39;sleep 15&#39;).toString()\\\&quot;)\&quot;)()}}&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:156,&quot;nome&quot;:&quot;{{\&quot;\&quot;.__class__.__mro__[1].__subclasses__()[157].__repr__.__globals__.get(\&quot;__builtins__\&quot;).get(\&quot;__import__\&quot;)(\&quot;subprocess\&quot;).check_output(\&quot;sleep 15\&quot;)}}&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:157,&quot;nome&quot;:&quot;${__import__(\&quot;subprocess\&quot;).check_output(\&quot;sleep 15\&quot;, shell=True)}&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:158,&quot;nome&quot;:&quot;{{__import__(\&quot;subprocess\&quot;).check_output(\&quot;sleep 15\&quot;, shell=True)}}&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:159,&quot;nome&quot;:&quot;&lt;%=%x(sleep 15)%&gt;&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:160,&quot;nome&quot;:&quot;#{%x(sleep 15)}&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:161,&quot;nome&quot;:&quot;{system(\&quot;sleep 15\&quot;)}&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:162,&quot;nome&quot;:&quot;John Doe&amp;sleep 15.0&amp;&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:163,&quot;nome&quot;:&quot;John Doe;sleep 15.0;&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:164,&quot;nome&quot;:&quot;John Doe\&quot;&amp;sleep 15.0&amp;\&quot;&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:165,&quot;nome&quot;:&quot;John Doe\&quot;;sleep 15.0;\&quot;&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:166,&quot;nome&quot;:&quot;John Doe&#39;&amp;sleep 15.0&amp;&#39;&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:167,&quot;nome&quot;:&quot;John Doe&#39;;sleep 15.0;&#39;&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:168,&quot;nome&quot;:&quot;John Doe&amp;timeout /T 15.0&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:169,&quot;nome&quot;:&quot;John Doe|timeout /T 15.0&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:170,&quot;nome&quot;:&quot;John Doe\&quot;&amp;timeout /T 15.0&amp;\&quot;&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:171,&quot;nome&quot;:&quot;John Doe\&quot;|timeout /T 15.0&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:172,&quot;nome&quot;:&quot;John Doe&#39;&amp;timeout /T 15.0&amp;&#39;&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:173,&quot;nome&quot;:&quot;John Doe&#39;|timeout /T 15.0&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:174,&quot;nome&quot;:&quot;John Doe;start-sleep -s 15.0&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:175,&quot;nome&quot;:&quot;John Doe\&quot;;start-sleep -s 15.0&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:176,&quot;nome&quot;:&quot;John Doe&#39;;start-sleep -s 15.0&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:177,&quot;nome&quot;:&quot;John Doe;start-sleep -s 15.0 #&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:179,&quot;nome&quot;:&quot;ZAP&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:180,&quot;nome&quot;:&quot;ZAP%n%s%n%s%n%s%n%s%n%s%n%s%n%s%n%s%n%s%n%s%n%s%n%s%n%s%n%s%n%s%n%s%n%s%n%s%n%s%n%s\n&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:182,&quot;nome&quot;:&quot;Set-cookie: Tamper=d4ca72c3-03f6-49a0-8bd5-6ba3f8a27f70&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:181,&quot;nome&quot;:&quot;ZAP %1!s%2!s%3!s%4!s%5!s%6!s%7!s%8!s%9!s%10!s%11!s%12!s%13!s%14!s%15!s%16!s%17!s%18!s%19!s%20!s%21!n%22!n%23!n%24!n%25!n%26!n%27!n%28!n%29!n%30!n%31!n%32!n%33!n%34!n%35!n%36!n%37!n%38!n%39!n%40!n\n&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:194,&quot;nome&quot;:&quot;&lt;xsl:value-of select=\&quot;document(&#39;http://localhost:22&#39;)\&quot;/&gt;&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:183,&quot;nome&quot;:&quot;any\r\nSet-cookie: Tamper=d4ca72c3-03f6-49a0-8bd5-6ba3f8a27f70&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:184,&quot;nome&quot;:&quot;any?\r\nSet-cookie: Tamper=d4ca72c3-03f6-49a0-8bd5-6ba3f8a27f70&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:186,&quot;nome&quot;:&quot;any?\nSet-cookie: Tamper=d4ca72c3-03f6-49a0-8bd5-6ba3f8a27f70&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:189,&quot;nome&quot;:&quot;&lt;&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:190,&quot;nome&quot;:&quot;&lt;xsl:value-of select=\&quot;system-property(&#39;xsl:vendor&#39;)\&quot;/&gt;&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:185,&quot;nome&quot;:&quot;any\nSet-cookie: Tamper=d4ca72c3-03f6-49a0-8bd5-6ba3f8a27f70&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:187,&quot;nome&quot;:&quot;any\r\nSet-cookie: Tamper=d4ca72c3-03f6-49a0-8bd5-6ba3f8a27f70\r\n&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:193,&quot;nome&quot;:&quot;&lt;xsl:value-of select=\&quot;system-property(&#39;xsl:vendor&#39;)\&quot;/&gt;&lt;!--&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:196,&quot;nome&quot;:&quot;&lt;xsl:value-of select=\&quot;php:function(&#39;exec&#39;,&#39;erroneous_command 2&gt;&amp;amp;1&#39;)\&quot;/&gt;&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:188,&quot;nome&quot;:&quot;any?\r\nSet-cookie: Tamper=d4ca72c3-03f6-49a0-8bd5-6ba3f8a27f70\r\n&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:191,&quot;nome&quot;:&quot;system-property(&#39;xsl:vendor&#39;)/&gt;&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:195,&quot;nome&quot;:&quot;&lt;xsl:variable name=\&quot;rtobject\&quot; select=\&quot;runtime:getRuntime()\&quot;/&gt;\n&lt;xsl:variable name=\&quot;process\&quot; select=\&quot;runtime:exec($rtobject,&#39;erroneous_command&#39;)\&quot;/&gt;\n&lt;xsl:variable name=\&quot;waiting\&quot; select=\&quot;process:waitFor($process)\&quot;/&gt;\n&lt;xsl:value-of select=\&quot;$process\&quot;/&gt;&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:192,&quot;nome&quot;:&quot;\&quot;/&gt;&lt;xsl:value-of select=\&quot;system-property(&#39;xsl:vendor&#39;)\&quot;/&gt;&lt;!--&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:197,&quot;nome&quot;:&quot;/&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:198,&quot;nome&quot;:&quot;c:/&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:199,&quot;nome&quot;:&quot;WEB-INF/web.xml&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:200,&quot;nome&quot;:&quot;WEB-INF\\web.xml&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:201,&quot;nome&quot;:&quot;/WEB-INF/web.xml&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:202,&quot;nome&quot;:&quot;\\WEB-INF\\web.xml&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:203,&quot;nome&quot;:&quot;servicos&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:204,&quot;nome&quot;:&quot;1214570711799938430.owasp.org&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:205,&quot;nome&quot;:&quot;http://\\1214570711799938430.owasp.org&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:206,&quot;nome&quot;:&quot;John Doe0W45pz4p&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:207,&quot;nome&quot;:&quot;&lt;img src=x onerror=prompt()&gt;&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:208,&quot;nome&quot;:&quot;zApPX111sS&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20},{&quot;id&quot;:209,&quot;nome&quot;:&quot;--&gt;&lt;script&gt;alert(1);&lt;/script&gt;&lt;!--&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.20}]</code></pre>
+				
+				
+			</details></td>
+	</tr>
+	<tr>
+		<th scope="row">Parameter</th>
+		<td><pre><code>nome</code></pre></td>
+	</tr>
+	<tr>
+		<th scope="row">Attack</th>
+		<td><pre><code>--&gt;&lt;script&gt;alert(1);&lt;/script&gt;&lt;!--</code></pre></td>
+	</tr>
+	
+	<tr>
+		<th scope="row">Solution</th>
+		<td> 
+<p>Phase: Architecture and Design</p>
+
+<p>Use a vetted library or framework that does not allow this weakness to occur or provides constructs that make this weakness easier to avoid.</p>
+
+<p>Examples of libraries and frameworks that make it easier to generate properly encoded output include Microsoft&#39;s Anti-XSS library, the OWASP ESAPI Encoding module, and Apache Wicket.</p>
+
+<p>Phases: Implementation; Architecture and Design</p>
+
+<p>Understand the context in which your data will be used and the encoding that will be expected. This is especially important when transmitting data between different components, or when generating outputs that can contain multiple encodings at the same time, such as web pages or multi-part mail messages. Study all expected communication protocols and data representations to determine the required encoding strategies.</p>
+
+<p>For any data that will be output to another web page, especially any data that was received from external inputs, use the appropriate encoding on all non-alphanumeric characters.</p>
+
+<p>Consult the XSS Prevention Cheat Sheet for more details on the types of encoding and escaping that are needed.</p>
+
+<p>Phase: Architecture and Design</p>
+
+<p>For any security checks that are performed on the client side, ensure that these checks are duplicated on the server side, in order to avoid CWE-602. Attackers can bypass the client-side checks by modifying values after the checks have been performed, or by changing the client to remove the client-side checks entirely. Then, these modified values would be submitted to the server.</p>
+
+<p>If available, use structured mechanisms that automatically enforce the separation between data and code. These mechanisms may be able to provide the relevant quoting, encoding, and validation automatically, instead of relying on the developer to provide this capability at every point where output is generated.</p>
+
+<p>Phase: Implementation</p>
+
+<p>For every web page that is generated, use and specify a character encoding such as ISO-8859-1 or UTF-8. When an encoding is not specified, the web browser may choose a different encoding by guessing which encoding is actually being used by the web page. This can cause the web browser to treat certain sequences as special, opening up the client to subtle XSS attacks. See CWE-116 for more mitigations related to encoding/escaping.</p>
+
+<p>To help mitigate XSS attacks against the user&#39;s session cookie, set the session cookie to be HttpOnly. In browsers that support the HttpOnly feature (such as more recent versions of Internet Explorer and Firefox), this attribute can prevent the user&#39;s session cookie from being accessible to malicious client-side scripts that use document.cookie. This is not a complete solution, since HttpOnly is not supported by all browsers. More importantly, XMLHTTPRequest and other powerful browser technologies provide read access to HTTP headers, including the Set-Cookie header in which the HttpOnly flag is set.</p>
+
+<p>Assume all input is malicious. Use an &quot;accept known good&quot; input validation strategy, i.e., use an allow list of acceptable inputs that strictly conform to specifications. Reject any input that does not strictly conform to specifications, or transform it into something that does. Do not rely exclusively on looking for malicious or malformed inputs (i.e., do not rely on a deny list). However, deny lists can be useful for detecting potential attacks or determining which inputs are so malformed that they should be rejected outright.</p>
+
+<p>When performing input validation, consider all potentially relevant properties, including length, type of input, the full range of acceptable values, missing or extra inputs, syntax, consistency across related fields, and conformance to business rules. As an example of business rule logic, &quot;boat&quot; may be syntactically valid because it only contains alphanumeric characters, but it is not valid if you are expecting colors such as &quot;red&quot; or &quot;blue.&quot;</p>
+
+<p>Ensure that you perform input validation at well-defined interfaces within the application. This will help protect the application even if a component is reused or moved elsewhere.</p>
+
+<p>	</p>
+ </td>
+	</tr>
+</table>
+
+											</details></li>
+									</ol>
+								</li>
+								
+								<li>
+									<h5>
+										<a
+											href="#alert-type-2">SQL Injection</a> <span>(1)</span>
+									</h5>
+									<ol>
+										<li><details>
+												<summary>
+													<span class="request-method-n-url">POST http://localhost:8080/clientes</span>
+												</summary>
+												
+<table class="alerts-table">
+	<tr>
+		<th scope="row">Alert tags</th>
+		<td>
+			<ul class="alert-tags-list">
+				<li>
+					 <span>POLICY_SEQUENCE = </span>
+				</li>
+				<li>
+					<span><a href="https://owasp.org/Top10/2021/A03_2021-Injection/">OWASP_2021_A03</a></span> 
+				</li>
+				<li>
+					<span><a href="https://www.zaproxy.org/docs/desktop/addons/common-library/alerttags/#compliance">PCI_DSS</a></span> 
+				</li>
+				<li>
+					<span><a href="https://cwe.mitre.org/data/definitions/89.html">CWE-89</a></span> 
+				</li>
+				<li>
+					 <span>POLICY_QA_CICD = </span>
+				</li>
+				<li>
+					 <span>POLICY_DEV_CICD = </span>
+				</li>
+				<li>
+					<span><a href="https://owasp.org/Top10/2025/A05_2025-Injection/">OWASP_2025_A05</a></span> 
+				</li>
+				<li>
+					<span><a href="https://owasp.org/www-project-web-security-testing-guide/v42/4-Web_Application_Security_Testing/07-Input_Validation_Testing/05-Testing_for_SQL_Injection">WSTG-v42-INPV-05</a></span> 
+				</li>
+				<li>
+					 <span>POLICY_API = </span>
+				</li>
+				<li>
+					 <span>POLICY_DEV_FULL = </span>
+				</li>
+				<li>
+					 <span>POLICY_QA_STD = </span>
+				</li>
+				<li>
+					 <span>POLICY_QA_FULL = </span>
+				</li>
+				<li>
+					 <span>POLICY_PENTEST = </span>
+				</li>
+				<li>
+					<span><a href="https://www.zaproxy.org/docs/desktop/addons/common-library/alerttags/#compliance">HIPAA</a></span> 
+				</li>
+				<li>
+					<span><a href="https://owasp.org/www-project-top-ten/2017/A1_2017-Injection.html">OWASP_2017_A01</a></span> 
+				</li>
+				<li>
+					<span><a href="https://owasp.org/API-Security/editions/2023/en/0xaa-unsafe-consumption-of-apis/">API_2023_API10</a></span> 
+				</li>
+				<li>
+					 <span>POLICY_DEV_STD = </span>
+				</li>
+			</ul>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">Alert description</th>
+		<td> 
+<p>SQL injection may be possible.</p>
+ </td>
+	</tr>
+	<tr>
+		<th scope="row">Other info</th>
+		<td> 
+<p>The page results were successfully manipulated using the boolean conditions [John Doe&#39; AND &#39;1&#39;=&#39;1&#39; -- ] and [John Doe&#39; AND &#39;1&#39;=&#39;2&#39; -- ]</p>
+
+<p>The parameter value being modified was stripped from the HTML output for the purposes of the comparison.</p>
+
+<p>Data was returned for the original parameter.</p>
+
+<p>The vulnerability was detected by successfully restricting the data originally returned, by manipulating the parameter.</p>
+ </td>
+	</tr>
+	<tr>
+		<th scope="row">Request</th>
+		<td><details open="open">
+				<summary>Request line and header section (497 bytes)</summary>
+				
+				<pre><code>POST http://localhost:8080/clientes HTTP/1.1
+host: localhost:8080
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36
+pragma: no-cache
+cache-control: no-cache
+accept: */*
+content-type: application/json
+content-length: 109
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkBvZmljaW5hLmNvbSIsInBlcmZpbCI6IkFETUlOIiwiaWF0IjoxNzg4MTE0NjgxLCJleHAiOjE3ODgxMTgyODF9.4IdmHVr06gZG8tVGBg8riocu4fhwg1-kDJ8Moh1WsiQ
+
+</code></pre>
+				
+				
+			</details> <details class="request-body" open="open">
+				<summary>Request body (109 bytes)</summary>
+				
+				<pre><code>{&quot;nome&quot;:&quot;John Doe&quot;,&quot;cpfCnpj&quot;:&quot;John Doe&#39; AND &#39;1&#39;=&#39;1&#39; -- &quot;,&quot;email&quot;:&quot;zaproxy@example.com&quot;,&quot;telefone&quot;:&quot;John Doe&quot;}</code></pre>
+				
+				
+			</details></td>
+	</tr>
+	<tr>
+		<th scope="row">Response</th>
+		<td><details open="open">
+				<summary>Status line and header section (427 bytes)</summary>
+				
+				<pre><code>HTTP/1.1 400
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 0
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+X-Frame-Options: DENY
+Content-Security-Policy: default-src &#39;self&#39;; frame-ancestors &#39;none&#39;; form-action &#39;self&#39;;
+Cross-Origin-Resource-Policy: same-origin
+Content-Type: application/json
+Date: Sun, 30 Aug 2026 18:32:30 GMT
+Connection: close
+content-length: 70
+
+</code></pre>
+				
+				
+			</details> <details class="response-body" open="open">
+				<summary>Response body (70 bytes)</summary>
+				
+				<pre><code>{&quot;status&quot;:400,&quot;message&quot;:&quot;CPF ou CNPJ inválido&quot;,&quot;error&quot;:&quot;Bad Request&quot;}</code></pre>
+				
+				
+			</details></td>
+	</tr>
+	<tr>
+		<th scope="row">Parameter</th>
+		<td><pre><code>cpfCnpj</code></pre></td>
+	</tr>
+	<tr>
+		<th scope="row">Attack</th>
+		<td><pre><code>John Doe&#39; AND &#39;1&#39;=&#39;1&#39; -- </code></pre></td>
+	</tr>
+	
+	<tr>
+		<th scope="row">Solution</th>
+		<td> 
+<p>Do not trust client side input, even if there is client side validation in place.</p>
+
+<p>In general, type check all data on the server side.</p>
+
+<p>If the application uses JDBC, use PreparedStatement or CallableStatement, with parameters passed by &#39;?&#39;</p>
+
+<p>If the application uses ASP, use ADO Command Objects with strong type checking and parameterized queries.</p>
+
+<p>If database Stored Procedures can be used, use them.</p>
+
+<p>Do *not* concatenate strings into queries in the stored procedure, or use &#39;exec&#39;, &#39;exec immediate&#39;, or equivalent functionality!</p>
+
+<p>Do not create dynamic SQL queries using simple string concatenation.</p>
+
+<p>Escape all data received from the client.</p>
+
+<p>Apply an &#39;allow list&#39; of allowed characters, or a &#39;deny list&#39; of disallowed characters in user input.</p>
+
+<p>Apply the principle of least privilege by using the least privileged database user possible.</p>
+
+<p>In particular, avoid using the &#39;sa&#39; or &#39;db-owner&#39; database users. This does not eliminate SQL injection, but minimizes its impact.</p>
+
+<p>Grant the minimum database access that is necessary for the application.</p>
+ </td>
+	</tr>
+</table>
+
+											</details></li>
+									</ol>
+								</li>
+								
+							</ol>
+						</li>
+						
+					</ol>
+				</li>
+				
+				<li id="alerts--risk-3-confidence-1">
+					<h3>
+						<span>Risk</span>=<span
+							class="risk-level">High</span>, <span>Confidence</span>=<span
+							class="confidence-level">Low</span> <span>(1)</span>
+					</h3>
+					<ol>
+						
+						<li class="alerts--site-li">
+							<h4>
+								<span class="site">http://localhost:8080</span> <span>(1)</span>
+							</h4>
+							<ol>
+								
+								<li>
+									<h5>
+										<a
+											href="#alert-type-1">Path Traversal</a> <span>(1)</span>
+									</h5>
+									<ol>
+										<li><details>
+												<summary>
+													<span class="request-method-n-url">POST http://localhost:8080/pecas</span>
+												</summary>
+												
+<table class="alerts-table">
+	<tr>
+		<th scope="row">Alert tags</th>
+		<td>
+			<ul class="alert-tags-list">
+				<li>
+					<span><a href="https://owasp.org/Top10/2021/A01_2021-Broken_Access_Control/">OWASP_2021_A01</a></span> 
+				</li>
+				<li>
+					 <span>POLICY_SEQUENCE = </span>
+				</li>
+				<li>
+					<span><a href="https://cwe.mitre.org/data/definitions/22.html">CWE-22</a></span> 
+				</li>
+				<li>
+					<span><a href="https://www.zaproxy.org/docs/desktop/addons/common-library/alerttags/#compliance">PCI_DSS</a></span> 
+				</li>
+				<li>
+					<span><a href="https://owasp.org/Top10/2025/A01_2025-Broken_Access_Control/">OWASP_2025_A01</a></span> 
+				</li>
+				<li>
+					<span><a href="https://owasp.org/www-project-web-security-testing-guide/v42/4-Web_Application_Security_Testing/05-Authorization_Testing/01-Testing_Directory_Traversal_File_Include">WSTG-v42-ATHZ-01</a></span> 
+				</li>
+				<li>
+					 <span>POLICY_DEV_FULL = </span>
+				</li>
+				<li>
+					 <span>POLICY_QA_STD = </span>
+				</li>
+				<li>
+					 <span>POLICY_QA_FULL = </span>
+				</li>
+				<li>
+					 <span>POLICY_PENTEST = </span>
+				</li>
+				<li>
+					<span><a href="https://www.zaproxy.org/docs/desktop/addons/common-library/alerttags/#compliance">HIPAA</a></span> 
+				</li>
+				<li>
+					<span><a href="https://owasp.org/www-project-top-ten/2017/A5_2017-Broken_Access_Control.html">OWASP_2017_A05</a></span> 
+				</li>
+				<li>
+					 <span>POLICY_DEV_STD = </span>
+				</li>
+			</ul>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">Alert description</th>
+		<td> 
+<p>The Path Traversal attack technique allows an attacker access to files, directories, and commands that potentially reside outside the web document root directory. An attacker may manipulate a URL in such a way that the web site will execute or reveal the contents of arbitrary files anywhere on the web server. Any device that exposes an HTTP-based interface is potentially vulnerable to Path Traversal.</p>
+
+<p>Most web sites restrict user access to a specific portion of the file-system, typically called the &quot;web document root&quot; or &quot;CGI root&quot; directory. These directories contain the files intended for user access and the executable necessary to drive web application functionality. To access files or execute commands anywhere on the file-system, Path Traversal attacks will utilize the ability of special-characters sequences.</p>
+
+<p>The most basic Path Traversal attack uses the &quot;../&quot; special-character sequence to alter the resource location requested in the URL. Although most popular web servers will prevent this technique from escaping the web document root, alternate encodings of the &quot;../&quot; sequence may help bypass the security filters. These method variations include valid and invalid Unicode-encoding (&quot;..%u2216&quot; or &quot;..%c0%af&quot;) of the forward slash character, backslash characters (&quot;..\&quot;) on Windows-based servers, URL encoded characters &quot;%2e%2e%2f&quot;), and double URL encoding (&quot;..%255c&quot;) of the backslash character.</p>
+
+<p>Even if the web server properly restricts Path Traversal attempts in the URL path, a web application itself may still be vulnerable due to improper handling of user-supplied input. This is a common problem of web applications that use template mechanisms or load static text from files. In variations of the attack, the original URL parameter value is substituted with the file name of one of the web application&#39;s dynamic scripts. Consequently, the results can reveal source code because the file is interpreted as text instead of an executable script. These techniques often employ additional special characters such as the dot (&quot;.&quot;) to reveal the listing of the current working directory, or &quot;%00&quot; NULL characters in order to bypass rudimentary file extension checks.</p>
+ </td>
+	</tr>
+	
+	<tr>
+		<th scope="row">Request</th>
+		<td><details open="open">
+				<summary>Request line and header section (493 bytes)</summary>
+				
+				<pre><code>POST http://localhost:8080/pecas HTTP/1.1
+host: localhost:8080
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36
+pragma: no-cache
+cache-control: no-cache
+accept: */*
+content-type: application/json
+content-length: 94
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkBvZmljaW5hLmNvbSIsInBlcmZpbCI6IkFETUlOIiwiaWF0IjoxNzg4MTE0NjgxLCJleHAiOjE3ODgxMTgyODF9.4IdmHVr06gZG8tVGBg8riocu4fhwg1-kDJ8Moh1WsiQ
+
+</code></pre>
+				
+				
+			</details> <details class="request-body" open="open">
+				<summary>Request body (94 bytes)</summary>
+				
+				<pre><code>{&quot;codigo&quot;:&quot;pecas&quot;,&quot;nome&quot;:&quot;John Doe&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.2,&quot;quantidadeEstoque&quot;:10}</code></pre>
+				
+				
+			</details></td>
+	</tr>
+	<tr>
+		<th scope="row">Response</th>
+		<td><details open="open">
+				<summary>Status line and header section (409 bytes)</summary>
+				
+				<pre><code>HTTP/1.1 201
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 0
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+X-Frame-Options: DENY
+Content-Security-Policy: default-src &#39;self&#39;; frame-ancestors &#39;none&#39;; form-action &#39;self&#39;;
+Cross-Origin-Resource-Policy: same-origin
+Content-Type: application/json
+Date: Sun, 30 Aug 2026 18:32:05 GMT
+content-length: 103
+
+</code></pre>
+				
+				
+			</details> <details class="response-body" open="open">
+				<summary>Response body (103 bytes)</summary>
+				
+				<pre><code>{&quot;id&quot;:199,&quot;codigo&quot;:&quot;pecas&quot;,&quot;nome&quot;:&quot;John Doe&quot;,&quot;descricao&quot;:&quot;John Doe&quot;,&quot;preco&quot;:1.2,&quot;quantidadeEstoque&quot;:10}</code></pre>
+				
+				
+			</details></td>
+	</tr>
+	<tr>
+		<th scope="row">Parameter</th>
+		<td><pre><code>codigo</code></pre></td>
+	</tr>
+	<tr>
+		<th scope="row">Attack</th>
+		<td><pre><code>pecas</code></pre></td>
+	</tr>
+	
+	<tr>
+		<th scope="row">Solution</th>
+		<td> 
+<p>Assume all input is malicious. Use an &quot;accept known good&quot; input validation strategy, i.e., use an allow list of acceptable inputs that strictly conform to specifications. Reject any input that does not strictly conform to specifications, or transform it into something that does. Do not rely exclusively on looking for malicious or malformed inputs (i.e., do not rely on a deny list). However, deny lists can be useful for detecting potential attacks or determining which inputs are so malformed that they should be rejected outright.</p>
+
+<p>When performing input validation, consider all potentially relevant properties, including length, type of input, the full range of acceptable values, missing or extra inputs, syntax, consistency across related fields, and conformance to business rules. As an example of business rule logic, &quot;boat&quot; may be syntactically valid because it only contains alphanumeric characters, but it is not valid if you are expecting colors such as &quot;red&quot; or &quot;blue.&quot;</p>
+
+<p>For filenames, use stringent allow lists that limit the character set to be used. If feasible, only allow a single &quot;.&quot; character in the filename to avoid weaknesses, and exclude directory separators such as &quot;/&quot;. Use an allow list of allowable file extensions.</p>
+
+<p>Warning: if you attempt to cleanse your data, then do so that the end result is not in the form that can be dangerous. A sanitizing mechanism can remove characters such as &#39;.&#39; and &#39;;&#39; which may be required for some exploits. An attacker can try to fool the sanitizing mechanism into &quot;cleaning&quot; data into a dangerous form. Suppose the attacker injects a &#39;.&#39; inside a filename (e.g. &quot;sensi.tiveFile&quot;) and the sanitizing mechanism removes the character resulting in the valid filename, &quot;sensitiveFile&quot;. If the input data are now assumed to be safe, then the file may be compromised. </p>
+
+<p>Inputs should be decoded and canonicalized to the application&#39;s current internal representation before being validated. Make sure that your application does not decode the same input twice. Such errors could be used to bypass allow list schemes by introducing dangerous inputs after they have been checked.</p>
+
+<p>Use a built-in path canonicalization function (such as realpath() in C) that produces the canonical version of the pathname, which effectively removes &quot;..&quot; sequences and symbolic links.</p>
+
+<p>Run your code using the lowest privileges that are required to accomplish the necessary tasks. If possible, create isolated accounts with limited privileges that are only used for a single task. That way, a successful attack will not immediately give the attacker access to the rest of the software or its environment. For example, database applications rarely need to run as the database administrator, especially in day-to-day operations.</p>
+
+<p>When the set of acceptable objects, such as filenames or URLs, is limited or known, create a mapping from a set of fixed input values (such as numeric IDs) to the actual filenames or URLs, and reject all other inputs.</p>
+
+<p>Run your code in a &quot;jail&quot; or similar sandbox environment that enforces strict boundaries between the process and the operating system. This may effectively restrict which files can be accessed in a particular directory or which commands can be executed by your software.</p>
+
+<p>OS-level examples include the Unix chroot jail, AppArmor, and SELinux. In general, managed code may provide some protection. For example, java.io.FilePermission in the Java SecurityManager allows you to specify restrictions on file operations.</p>
+
+<p>This may not be a feasible solution, and it only limits the impact to the operating system; the rest of your application may still be subject to compromise.</p>
+ </td>
+	</tr>
+</table>
+
+											</details></li>
+									</ol>
+								</li>
+								
+							</ol>
+						</li>
+						
+					</ol>
+				</li>
+				  
+				 
+				 
+				 
+			</ol>
+		</section>
+
+		<section id="appendix" class="appendix">
+			<h2>Appendix</h2>
+
+			<section id="alert-types" class="alert-types">
+				<h3>Alert Types</h3>
+				<p class="alert-types-intro">This section contains additional information on the types of alerts in the report.</p>
+				<ol>
+					<li
+						id="alert-type-0">
+						<h4>Cross Site Scripting (Persistent)</h4>
+						<table class="alert-types-table">
+							<tr>
+								<th scope="row">Source</th>
+								<td>
+									
+									   <span>raised by an active scanner</span> <span>(<a
+										href="https://www.zaproxy.org/docs/alerts/40014/">Cross Site Scripting (Persistent)</a>)
+									</span>   
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">CWE ID</th>
+								<td><a
+									href="https://cwe.mitre.org/data/definitions/79.html">79</a></td>
+							</tr>
+							<tr>
+								<th scope="row">WASC ID</th>
+								<td>8</td>
+							</tr>
+							<tr>
+								<th scope="row">Reference</th>
+								<td>
+									<ol>
+										<li><a
+											href="https://owasp.org/www-community/attacks/xss/">https://owasp.org/www-community/attacks/xss/</a></li>
+										<li><a
+											href="https://cwe.mitre.org/data/definitions/79.html">https://cwe.mitre.org/data/definitions/79.html</a></li>
+									</ol>
+								</td>
+							</tr>
+						</table>
+					</li>
+					<li
+						id="alert-type-1">
+						<h4>Path Traversal</h4>
+						<table class="alert-types-table">
+							<tr>
+								<th scope="row">Source</th>
+								<td>
+									
+									   <span>raised by an active scanner</span> <span>(<a
+										href="https://www.zaproxy.org/docs/alerts/6/">Path Traversal</a>)
+									</span>   
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">CWE ID</th>
+								<td><a
+									href="https://cwe.mitre.org/data/definitions/22.html">22</a></td>
+							</tr>
+							<tr>
+								<th scope="row">WASC ID</th>
+								<td>33</td>
+							</tr>
+							<tr>
+								<th scope="row">Reference</th>
+								<td>
+									<ol>
+										<li><a
+											href="https://owasp.org/www-community/attacks/Path_Traversal">https://owasp.org/www-community/attacks/Path_Traversal</a></li>
+										<li><a
+											href="https://cwe.mitre.org/data/definitions/22.html">https://cwe.mitre.org/data/definitions/22.html</a></li>
+									</ol>
+								</td>
+							</tr>
+						</table>
+					</li>
+					<li
+						id="alert-type-2">
+						<h4>SQL Injection</h4>
+						<table class="alert-types-table">
+							<tr>
+								<th scope="row">Source</th>
+								<td>
+									
+									   <span>raised by an active scanner</span> <span>(<a
+										href="https://www.zaproxy.org/docs/alerts/40018/">SQL Injection</a>)
+									</span>   
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">CWE ID</th>
+								<td><a
+									href="https://cwe.mitre.org/data/definitions/89.html">89</a></td>
+							</tr>
+							<tr>
+								<th scope="row">WASC ID</th>
+								<td>19</td>
+							</tr>
+							<tr>
+								<th scope="row">Reference</th>
+								<td>
+									<ol>
+										<li><a
+											href="https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html">https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html</a></li>
+									</ol>
+								</td>
+							</tr>
+						</table>
+					</li>
+				</ol>
+			</section>
+		</section>
+		 
+	</main>
+</body>
+</html>
+
+
+

@@ -155,4 +155,4 @@ Para o documento final em PDF de submissão da Fase 1, recomenda-se incluir:
 
 1. **printscreen/imagem** do resumo do scan do OWASP ZAP (ou o HTML exportado).
 2. **Declaração de Conformidade:** Afirmando que 0 vulnerabilidades de nível Alto ou Crítico foram encontradas.
-3. Referência ao arquivo **[RELATORIO_SEGURANCA_OWASP_ZAP.md](RELATORIO_SEGURANCA_OWASP_ZAP.md)** do repositório.
+3. Referência ao arquivo **[RELATORIO_SEGURANCA_OWASP_ZAP.md](./RELATORIO_SEGURANCA_OWASP_ZAP.md)** do repositório.

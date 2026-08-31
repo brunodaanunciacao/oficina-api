@@ -20,6 +20,7 @@ import br.com.fiap.oficina.interfaces.dtos.OrdemServicoPecaResponseDTO;
 import br.com.fiap.oficina.interfaces.dtos.OrdemServicoRequestDTO;
 import br.com.fiap.oficina.interfaces.dtos.OrdemServicoResponseDTO;
 import br.com.fiap.oficina.interfaces.dtos.OrdemServicoServicoResponseDTO;
+import br.com.fiap.oficina.interfaces.dtos.TempoMedioExecucaoDTO;
 import br.com.fiap.oficina.interfaces.exceptions.EstoqueInsuficienteException;
 import br.com.fiap.oficina.interfaces.exceptions.OrdemServicoNaoEncontradaException;
 import br.com.fiap.oficina.interfaces.exceptions.PecaNaoEncontradaException;
@@ -30,6 +31,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
+import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -74,7 +76,7 @@ public class OrdemServicoService {
 
         ordemServico.setVeiculo(veiculo);
         ordemServico.setDescricaoProblema(request.descricaoProblema());
-        ordemServico.setStatus(StatusOrdemServico.CRIADA);
+        ordemServico.setStatus(StatusOrdemServico.RECEBIDA);
         ordemServico.setValorTotal(BigDecimal.ZERO);
         ordemServico.setDataAbertura(LocalDateTime.now());
 
@@ -116,12 +118,19 @@ public class OrdemServicoService {
                 .toList();
     }
 
+    @Transactional
     public OrdemServicoResponseDTO adicionarServico(
             Long ordemServicoId,
             AdicionarServicoOSDTO request) {
 
         OrdemServico ordemServico =
                 buscarEntidadePorId(ordemServicoId);
+
+        if (ordemServico.getStatus() != StatusOrdemServico.EM_DIAGNOSTICO) {
+            throw new StatusOrdemServicoInvalidoException(
+                    "Serviços e peças só podem ser adicionados enquanto a ordem de serviço estiver em diagnóstico"
+            );
+        }
 
         Servico servico = servicoRepository
                 .findById(request.servicoId())
@@ -159,6 +168,12 @@ public class OrdemServicoService {
 
         OrdemServico ordemServico =
                 buscarEntidadePorId(ordemServicoId);
+
+        if (ordemServico.getStatus() != StatusOrdemServico.EM_DIAGNOSTICO) {
+            throw new StatusOrdemServicoInvalidoException(
+                    "Serviços e peças só podem ser adicionados enquanto a ordem de serviço estiver em diagnóstico"
+            );
+        }
 
         Peca peca = pecaRepository
                 .findById(request.pecaId())
@@ -211,6 +226,7 @@ public class OrdemServicoService {
         return converterParaResponse(atualizada);
     }
 
+    @Transactional
     public OrdemServicoResponseDTO atualizarStatus(
             Long id,
             AtualizarStatusOSDTO request) {
@@ -228,10 +244,54 @@ public class OrdemServicoService {
 
         ordemServico.setStatus(novo);
 
+        if (novo == StatusOrdemServico.EM_EXECUCAO && ordemServico.getDataInicioExecucao() == null) {
+            ordemServico.setDataInicioExecucao(LocalDateTime.now());
+        } else if (novo == StatusOrdemServico.FINALIZADA && ordemServico.getDataFinalizacao() == null) {
+            ordemServico.setDataFinalizacao(LocalDateTime.now());
+        } else if (novo == StatusOrdemServico.CANCELADA) {
+            List<OrdemServicoPeca> itensPeca =
+                    ordemServicoPecaRepository.findByOrdemServicoId(ordemServico.getId());
+            for (OrdemServicoPeca item : itensPeca) {
+                Peca peca = item.getPeca();
+                peca.setQuantidadeEstoque(peca.getQuantidadeEstoque() + item.getQuantidade());
+                pecaRepository.save(peca);
+            }
+        }
+
         OrdemServico atualizada =
                 ordemServicoRepository.save(ordemServico);
 
         return converterParaResponse(atualizada);
+    }
+
+    public TempoMedioExecucaoDTO obterTempoMedioExecucao() {
+
+        List<OrdemServico> ordensFinalizadas = ordemServicoRepository.findAll()
+                .stream()
+                .filter(os -> (os.getStatus() == StatusOrdemServico.FINALIZADA || os.getStatus() == StatusOrdemServico.ENTREGUE)
+                        && os.getDataInicioExecucao() != null
+                        && os.getDataFinalizacao() != null)
+                .toList();
+
+        if (ordensFinalizadas.isEmpty()) {
+            return new TempoMedioExecucaoDTO(0, 0.0, "0 minutos");
+        }
+
+        long totalMinutos = 0;
+        for (OrdemServico os : ordensFinalizadas) {
+            long minutos = Duration.between(os.getDataInicioExecucao(), os.getDataFinalizacao()).toMinutes();
+            totalMinutos += Math.max(0, minutos);
+        }
+
+        double mediaMinutos = (double) totalMinutos / ordensFinalizadas.size();
+        long horas = (long) mediaMinutos / 60;
+        long minsRestantes = Math.round(mediaMinutos % 60);
+
+        String formatado = horas > 0
+                ? String.format("%d hora(s) e %d minuto(s)", horas, minsRestantes)
+                : String.format("%d minuto(s)", minsRestantes);
+
+        return new TempoMedioExecucaoDTO(ordensFinalizadas.size(), mediaMinutos, formatado);
     }
 
     private void validarTransicao(
@@ -240,11 +300,11 @@ public class OrdemServicoService {
 
         boolean valida = switch (atual) {
 
-            case CRIADA ->
-                    novo == StatusOrdemServico.DIAGNOSTICO
+            case RECEBIDA ->
+                    novo == StatusOrdemServico.EM_DIAGNOSTICO
                             || novo == StatusOrdemServico.CANCELADA;
 
-            case DIAGNOSTICO ->
+            case EM_DIAGNOSTICO ->
                     novo == StatusOrdemServico.AGUARDANDO_APROVACAO
                             || novo == StatusOrdemServico.CANCELADA;
 
@@ -336,7 +396,9 @@ public class OrdemServicoService {
                 servicos,
                 pecas,
                 ordemServico.getValorTotal(),
-                ordemServico.getDataAbertura()
+                ordemServico.getDataAbertura(),
+                ordemServico.getDataInicioExecucao(),
+                ordemServico.getDataFinalizacao()
         );
     }
 }

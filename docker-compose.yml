@@ -2,24 +2,36 @@ services:
   postgres:
     image: postgres:16-alpine
     container_name: oficina-postgres
-
     environment:
       POSTGRES_DB: oficina
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
-
     ports:
-      - "5432:5432"
-
+      - "${POSTGRES_PORT:-5432}:5432"
     volumes:
       - oficina_postgres_data:/var/lib/postgresql/data
-
+      # Mapeamento dos scripts de inicialização:
+      - ./init-scripts:/docker-entrypoint-initdb.d:ro
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U postgres -d oficina"]
-      interval: 10s
+      interval: 5s
       timeout: 5s
       retries: 5
 
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: oficina-api
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/oficina
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: postgres
+    depends_on:
+      postgres:
+        condition: service_healthy
+
 volumes:
   oficina_postgres_data:
-  

@@ -2,11 +2,11 @@
 -- SEED DATA: Usuários de Teste, Clientes, Veículos, Serviços e Peças
 -- ================================================
 
--- 1. Usuários de Teste (Senha criptografada com BCrypt para "Admin@123")
+-- 1. Usuários de Teste (Senha criptografada dinamicamente via pgcrypto / BCrypt para "Admin@123")
 INSERT INTO usuarios (nome, email, senha, perfil, ativo) VALUES
-('Administrador', 'admin@oficina.com', '$2a$10$8.UnVuG9HHgffUDAlk8qfOuVGkqRzgVymGe07Xd0D1zPH6.vY5lF2', 'ADMIN', true),
-('Atendente Teste', 'atendente@oficina.com', '$2a$10$8.UnVuG9HHgffUDAlk8qfOuVGkqRzgVymGe07Xd0D1zPH6.vY5lF2', 'ATENDENTE', true),
-('Mecânico Teste', 'mecanico@oficina.com', '$2a$10$8.UnVuG9HHgffUDAlk8qfOuVGkqRzgVymGe07Xd0D1zPH6.vY5lF2', 'MECANICO', true)
+('Administrador', 'admin@oficina.com', crypt('Admin@123', gen_salt('bf', 10)), 'ADMIN', true),
+('Atendente Teste', 'atendente@oficina.com', crypt('Admin@123', gen_salt('bf', 10)), 'ATENDENTE', true),
+('Mecânico Teste', 'mecanico@oficina.com', crypt('Admin@123', gen_salt('bf', 10)), 'MECANICO', true)
 ON CONFLICT (email) DO NOTHING;
 
 -- 2. Clientes
